@@ -3,6 +3,7 @@ import Heapsort
 import numpy as np
 import random 
 import matplotlib.pyplot as plt
+import Bubblesort
 
 def shuffle(vetor):
     inicio = datetime.datetime.now()
@@ -17,8 +18,13 @@ def heapsort(vetor,tempos):
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
     print(f"Heapsort realizado em: {datetime.datetime.now()-inicio}")
 
+def bubble(vetor,tempos):
+    inicio = datetime.datetime.now()
+    Bubblesort.bubbleSort(vetor)
+    tempos.append((datetime.datetime.now()-inicio).total_seconds())
+    print(f"Bubblesort realizado em: {datetime.datetime.now()-inicio}")
 
-dicionario = {"tempo":[],"quantidade_elementos":[]}
+dicionario = {"tempo_heap":[],"tempo_bubble":[],"quantidade_elementos":[]}
 quantidade_divisao_tempo_grafico = 20
 quantidade_elemento_grafico = 30
 
@@ -32,13 +38,25 @@ for i in range(0,quantidade_divisao,1):
     vetor = np.arange(0,step*(i+1),1)
     # print(vetor)
     shuffle(vetor)
+    vetor_heap= vetor.copy()
+    vetor_bubble= vetor.copy()
     dicionario["quantidade_elementos"].append(len(vetor))
-    heapsort(vetor,dicionario["tempo"])
+    heapsort(vetor_heap,dicionario["tempo_heap"])
+    bubble(vetor_bubble,dicionario["tempo_bubble"])
     print()
-print(dicionario)
-plt.plot(dicionario["quantidade_elementos"],dicionario["tempo"],label="Heapsort")
+
+tempo_maximo = []
+tempo_maximo.extend(dicionario["tempo_bubble"])
+tempo_maximo.extend(dicionario["tempo_heap"])
+
+
+# print(dicionario)
+plt.plot(dicionario["quantidade_elementos"],dicionario["tempo_heap"],label="Heapsort")
+plt.plot(dicionario["quantidade_elementos"],dicionario["tempo_bubble"],label="BubbleSort")
 plt.grid()
-plt.yticks(np.arange(np.min(dicionario["tempo"]),np.max(dicionario["tempo"])+np.max(dicionario["tempo"])/quantidade_divisao_tempo_grafico,np.max(dicionario["tempo"])/quantidade_divisao_tempo_grafico))
-plt.xticks(dicionario["quantidade_elementos"])
+plt.yticks(np.arange(np.min(tempo_maximo),np.max(tempo_maximo)+np.max(tempo_maximo)/quantidade_divisao_tempo_grafico,np.max(tempo_maximo)/quantidade_divisao_tempo_grafico))
+plt.xticks(dicionario["quantidade_elementos"],rotation=45)
+plt.xlabel("Quantidade de elementos no vetor")
+plt.ylabel("Tempo em segundos")
 plt.legend()
 plt.show()
