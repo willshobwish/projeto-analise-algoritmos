@@ -40,6 +40,7 @@ for i in range(0,quantidade_divisao,1):
     shuffle(vetor)
     vetor_heap= vetor.copy()
     vetor_bubble= vetor.copy()
+    print(f"Etapa: {i}/{quantidade_divisao}")
     dicionario["quantidade_elementos"].append(len(vetor))
     heapsort(vetor_heap,dicionario["tempo_heap"])
     bubble(vetor_bubble,dicionario["tempo_bubble"])
