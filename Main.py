@@ -37,6 +37,7 @@ def quicksort_meio(vetor,tempos):
     print(f"Quicksort realizado em: {datetime.datetime.now()-inicio}")
 
 def grafico_individual(dicionario:dict,quantidade_elementos:list):
+    plt.figure(figsize=(8.27,6))
     for sorts in dicionario.keys():
         plt.plot(quantidade_elementos,dicionario[sorts],label=sorts)
         plt.grid()
@@ -47,9 +48,10 @@ def grafico_individual(dicionario:dict,quantidade_elementos:list):
         plt.ylabel("Tempo em segundos")
         plt.legend()
         name = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
-        plt.savefig(f"{name}.png",dpi=300,format="png")
+        plt.savefig(f"{name} {sorts}.png",dpi=300,format="png")
         # pandas.DataFrame(dicionario).to_csv(f"{name}{sorts}.csv",index=False)
-        plt.show()
+        # plt.show()
+        plt.clf()
 
 
 def grafico_todos(dicionario:dict,quantidade_elementos:list):
@@ -71,9 +73,11 @@ def grafico_todos(dicionario:dict,quantidade_elementos:list):
     plt.ylabel("Tempo em segundos")
     plt.legend()
     name = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
-    plt.savefig(f"{name}.png",dpi=300,format="png")
+    plt.savefig(f"{name} all.png",dpi=300,format="png")
     pandas.DataFrame(dicionario).to_csv(f"{name}.csv",index=False)
-    plt.show()
+    # plt.show()
+    plt.clf()
+
 
 
 quantidade_elementos =[]
@@ -82,16 +86,14 @@ quantidade_divisao_tempo_grafico = 20
 quantidade_elemento_grafico = 30
 
 # quantidade_divisao = int(input("Quantidade de vetor: "))
-quantidade_divisao = int(10)
-# minimo = int(input("Numero de elementos minimo em um vetor: "))
+quantidade_divisao = int(20)
 # maximo = int(input("Numero de elementos maximos em um vetor: "))
-maximo = int(1000)
+maximo = int(2000)
+
 quantidade = np.arange(0,)
 step = maximo/quantidade_divisao
-# vetor_nlogn=[]
 for i in range(0,quantidade_divisao,1):
     vetor = np.arange(0,step*(i+1),1)
-    # print(vetor)
     print(f"Etapa: {i}/{quantidade_divisao}")
     shuffle(vetor)
 
@@ -102,7 +104,6 @@ for i in range(0,quantidade_divisao,1):
     heapsort(vetor_heap,dicionario["Heapsort"])
     bubble(vetor_bubble,dicionario["Bubblesort"])
     quicksort_comeco(vetor_quicksort,dicionario["Quicksort inicio"])
-    # quicksort_meio(vetor_quicksort,dicionario["tempo_quicksort_meio"])
     print()
 
 grafico_individual(dicionario=dicionario,quantidade_elementos=quantidade_elementos)
