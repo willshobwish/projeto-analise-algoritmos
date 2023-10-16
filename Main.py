@@ -43,7 +43,8 @@ def grafico_individual(dicionario:dict,quantidade_elementos:list):
         plt.grid()
         print(sorts)
         plt.yticks(np.arange(np.min(dicionario[sorts]),np.max(dicionario[sorts])+np.max(dicionario[sorts])/quantidade_divisao_tempo_grafico,np.max(dicionario[sorts])/quantidade_divisao_tempo_grafico))
-        plt.xticks(quantidade_elementos,rotation=90)
+        plt.xticks([quantidade_elementos[i] for i in range(0,len(quantidade_elementos),int(len(quantidade_elementos)/20))],rotation=90)
+        # plt.xticks(quantidade_elementos,rotation=90)
         plt.xlabel("Quantidade de elementos no vetor")
         plt.ylabel("Tempo em segundos")
         plt.legend()
@@ -53,6 +54,7 @@ def grafico_individual(dicionario:dict,quantidade_elementos:list):
 
 
 def grafico_todos(dicionario:dict,quantidade_elementos:list):
+
     tempo_maximo = []
     for sorts in dicionario.keys():
         tempo_maximo.extend(dicionario[sorts])
@@ -61,7 +63,9 @@ def grafico_todos(dicionario:dict,quantidade_elementos:list):
         plt.plot(quantidade_elementos,dicionario[sorts],label=sorts)
     plt.grid()
     plt.yticks(np.arange(np.min(tempo_maximo),np.max(tempo_maximo)+np.max(tempo_maximo)/quantidade_divisao_tempo_grafico,np.max(tempo_maximo)/quantidade_divisao_tempo_grafico))
-    plt.xticks(quantidade_elementos,rotation=90)
+    # plt.xticks(quantidade_elementos,rotation=90)
+
+    plt.xticks([quantidade_elementos[i] for i in range(0,len(quantidade_elementos),int(len(quantidade_elementos)/20))],rotation=90)
     plt.xlabel("Quantidade de elementos no vetor")
     plt.ylabel("Tempo em segundos")
     plt.legend()
@@ -73,20 +77,26 @@ def grafico_todos(dicionario:dict,quantidade_elementos:list):
 
 
 quantidade_elementos =[]
+# dicionario_sort = {"Heapsort":heapsort(),
+#                    "Bubblesort":[],
+#                    "Quicksort inicio":[],
+#                    "Quicksort meio":[]}
+
 dicionario = {"Heapsort":[],"Bubblesort":[],"Quicksort inicio":[],"Quicksort meio":[]}
 quantidade_divisao_tempo_grafico = 20
 quantidade_elemento_grafico = 30
 
 # quantidade_divisao = int(input("Quantidade de vetor: "))
-quantidade_divisao = int(20)
+quantidade_iteracao = 20
 # maximo = int(input("Numero de elementos maximos em um vetor: "))
-maximo = int(2000)
+elementos_iteracao = 100
 
-quantidade = np.arange(0,)
-step = maximo/quantidade_divisao
-for i in range(0,quantidade_divisao,1):
-    vetor = np.arange(0,step*(i+1),1)
-    print(f"Etapa: {i}/{quantidade_divisao}")
+# quantidade = np.arange(0,)
+# step = maximo/quantidade_divisao
+for i in range(1,quantidade_iteracao+1,1):
+    vetor = np.arange(0,elementos_iteracao*i,1)
+    # print(vetor)
+    print(f"Etapa: {i}/{quantidade_iteracao}")
     shuffle(vetor)
 
     vetor_heap= vetor.copy()
@@ -97,7 +107,7 @@ for i in range(0,quantidade_divisao,1):
     heapsort(vetor_heap,dicionario["Heapsort"])
     bubble(vetor_bubble,dicionario["Bubblesort"])
     quicksort_comeco(vetor_quicksort,dicionario["Quicksort inicio"])
-    quicksort_meio(vetor_quicksort,dicionario["Quicksort meio"])
+    quicksort_meio(vetor_quicksort_meio,dicionario["Quicksort meio"])
     print()
 
 grafico_individual(dicionario=dicionario,quantidade_elementos=quantidade_elementos)
