@@ -1,5 +1,6 @@
 import datetime
 import Heapsort
+import Quicksort
 import numpy as np
 import random 
 import matplotlib.pyplot as plt
@@ -10,7 +11,6 @@ def shuffle(vetor):
     random.shuffle(vetor)
     print(f"Shuffle realizado em: {datetime.datetime.now()-inicio}")
     # print(vetor)
-
 
 def heapsort(vetor,tempos):
     inicio = datetime.datetime.now()
@@ -23,6 +23,12 @@ def bubble(vetor,tempos):
     Bubblesort.bubbleSort(vetor)
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
     print(f"Bubblesort realizado em: {datetime.datetime.now()-inicio}")
+
+def quicksort(vetor, tempos):
+    inicio = datetime.datetime.now()
+    Quicksort.quickSortIterative(vetor,0,len(vetor)-1)
+    tempos.append((datetime.datetime.now()-inicio).total_seconds())
+    print(f"Quicksort realizado em: {datetime.datetime.now()-inicio}")
 
 dicionario = {"tempo_heap":[],"tempo_bubble":[],"quantidade_elementos":[]}
 quantidade_divisao_tempo_grafico = 20

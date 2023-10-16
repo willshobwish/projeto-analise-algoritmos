@@ -1,52 +1,75 @@
-# Python program for implementation of Quicksort Sort
- 
-# This implementation utilizes pivot as the last element in the nums list
-# It has a pointer to keep track of the elements smaller than the pivot
-# At the very end of partition() function, the pointer is swapped with the pivot
-# to come up with a "sorted" nums relative to the pivot
- 
- 
-# Function to find the partition position
-def partition(array, low, high):
- 
-    # choose the rightmost element as pivot
-    pivot = array[high]
- 
-    # pointer for greater element
-    i = low - 1
- 
-    # traverse through all elements
-    # compare each element with pivot
-    for j in range(low, high):
-        if array[j] <= pivot:
- 
-            # If element smaller than pivot is found
-            # swap it with the greater element pointed by i
+
+# Python program for implementation of Quicksort  
+  
+# This function is same in both iterative and recursive 
+def partition(arr, l, h): 
+    i = ( l - 1 ) 
+    x = arr[h] 
+  
+    for j in range(l, h): 
+        if   arr[j] <= x: 
+  
+            # increment index of smaller element 
             i = i + 1
- 
-            # Swapping element at i with element at j
-            (array[i], array[j]) = (array[j], array[i])
- 
-    # Swap the pivot element with the greater element specified by i
-    (array[i + 1], array[high]) = (array[high], array[i + 1])
- 
-    # Return the position from where partition is done
-    return i + 1
- 
-# function to perform quicksort
- 
- 
-def quickSort(array, low, high):
-    if low < high:
- 
-        # Find pivot element such that
-        # element smaller than pivot are on the left
-        # element greater than pivot are on the right
-        pi = partition(array, low, high)
- 
-        # Recursive call on the left of pivot
-        quickSort(array, low, pi - 1)
- 
-        # Recursive call on the right of pivot
-        quickSort(array, pi + 1, high)
- 
+            arr[i], arr[j] = arr[j], arr[i] 
+  
+    arr[i + 1], arr[h] = arr[h], arr[i + 1] 
+    return (i + 1) 
+  
+# Function to do Quick sort 
+# arr[] --> Array to be sorted, 
+# l  --> Starting index, 
+# h  --> Ending index 
+def quickSortIterative(arr:list, l:int, h:int): 
+  
+    # Create an auxiliary stack 
+    size = h - l + 1
+    stack = [0] * (size) 
+  
+    # initialize top of stack 
+    top = -1
+  
+    # push initial values of l and h to stack 
+    top = top + 1
+    stack[top] = l 
+    top = top + 1
+    stack[top] = h 
+  
+    # Keep popping from stack while is not empty 
+    while top >= 0: 
+  
+        # Pop h and l 
+        h = stack[top] 
+        top = top - 1
+        l = stack[top] 
+        top = top - 1
+  
+        # Set pivot element at its correct position in 
+        # sorted array 
+        p = partition( arr, l, h ) 
+  
+        # If there are elements on left side of pivot, 
+        # then push left side to stack 
+        if p-1 > l: 
+            top = top + 1
+            stack[top] = l 
+            top = top + 1
+            stack[top] = p - 1
+  
+        # If there are elements on right side of pivot, 
+        # then push right side to stack 
+        if p + 1 < h: 
+            top = top + 1
+            stack[top] = p + 1
+            top = top + 1
+            stack[top] = h 
+  
+# Driver code to test above 
+arr = [4, 3, 5, 2, 1, 3, 2, 3] 
+n = len(arr) 
+quickSortIterative(arr, 0, n-1) 
+print ("Sorted array is:") 
+for i in range(n): 
+    print ("% d" % arr[i]), 
+  
+# This code is contributed by Mohit Kumra 
