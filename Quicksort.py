@@ -65,11 +65,11 @@ def quickSortIterative(arr:list, l:int, h:int):
             stack[top] = h 
   
 # Driver code to test above 
-arr = [4, 3, 5, 2, 1, 3, 2, 3] 
-n = len(arr) 
-quickSortIterative(arr, 0, n-1) 
-print ("Sorted array is:") 
-for i in range(n): 
-    print ("% d" % arr[i]), 
+# arr = [4, 3, 5, 2, 1, 3, 2, 3] 
+# n = len(arr) 
+# quickSortIterative(arr, 0, n-1) 
+# print ("Sorted array is:") 
+# for i in range(n): 
+#     print ("% d" % arr[i]), 
   
-# This code is contributed by Mohit Kumra 
+# # This code is contributed by Mohit Kumra 
