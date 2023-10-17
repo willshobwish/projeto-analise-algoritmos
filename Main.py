@@ -63,9 +63,7 @@ def grafico_todos(dicionario:dict,quantidade_elementos:list):
         plt.plot(quantidade_elementos,dicionario[sorts],label=sorts)
     plt.grid()
     plt.yticks(np.arange(np.min(tempo_maximo),np.max(tempo_maximo)+np.max(tempo_maximo)/quantidade_divisao_tempo_grafico,np.max(tempo_maximo)/quantidade_divisao_tempo_grafico))
-    # plt.xticks(quantidade_elementos,rotation=90)
-
-    plt.xticks([quantidade_elementos[i] for i in range(0,len(quantidade_elementos),int(len(quantidade_elementos)/20))],rotation=90)
+    plt.xticks([quantidade_elementos[i] for i in range(0,len(quantidade_elementos),int(len(quantidade_elementos)/25))],rotation=90)
     plt.xlabel("Quantidade de elementos no vetor")
     plt.ylabel("Tempo em segundos")
     plt.legend()
@@ -74,20 +72,14 @@ def grafico_todos(dicionario:dict,quantidade_elementos:list):
     pandas.DataFrame(dicionario).to_csv(f"{name}.csv",index=False)
     plt.clf()
 
-
-
-quantidade_elementos =[]
-# dicionario_sort = {"Heapsort":heapsort(),
-#                    "Bubblesort":[],
-#                    "Quicksort inicio":[],
-#                    "Quicksort meio":[]}
+quantidade_elementos = []
 
 dicionario = {"Heapsort":[],"Bubblesort":[],"Quicksort inicio":[],"Quicksort meio":[]}
-quantidade_divisao_tempo_grafico = 20
-quantidade_elemento_grafico = 30
+quantidade_divisao_tempo_grafico = 25
+
 
 # quantidade_divisao = int(input("Quantidade de vetor: "))
-quantidade_iteracao = 20
+quantidade_iteracao = 40
 # maximo = int(input("Numero de elementos maximos em um vetor: "))
 elementos_iteracao = 100
 
