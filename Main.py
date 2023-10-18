@@ -5,6 +5,10 @@ import random
 import matplotlib.pyplot as plt
 import Bubblesort
 import Quicksort
+import Insertion_sort
+import Merge_sort
+import Shell_sort
+import Selection_sort
 import pandas
 
 def shuffle(vetor):
@@ -35,6 +39,31 @@ def quicksort_meio(vetor,tempos):
     Quicksort.quickSortIterative(vetor,int(np.floor(len(vetor)/2)),len(vetor)-1)
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
     print(f"Quicksort realizado em: {datetime.datetime.now()-inicio}")
+
+
+def Insertion(vetor,tempos):
+    inicio = datetime.datetime.now()
+    Insertion_sort.insertionSort(vetor)
+    tempos.append((datetime.datetime.now()-inicio).total_seconds())
+    print(f"Insertion sort realizado em: {datetime.datetime.now()-inicio}")
+
+def Merge(vetor,tempos):
+    inicio = datetime.datetime.now()
+    Merge_sort.mergeSort(vetor,0,len(vetor)-1)
+    tempos.append((datetime.datetime.now()-inicio).total_seconds())
+    print(f"Merge sort realizado em: {datetime.datetime.now()-inicio}")
+
+def Selection(vetor,tempos):
+    inicio = datetime.datetime.now()
+    Selection_sort.Selection_Sort(vetor)
+    tempos.append((datetime.datetime.now()-inicio).total_seconds())
+    print(f"Selection sort realizado em: {datetime.datetime.now()-inicio}")
+
+def Shell(vetor,tempos):
+    inicio = datetime.datetime.now()
+    Shell_sort.shellSort(vetor,len(vetor))
+    tempos.append((datetime.datetime.now()-inicio).total_seconds())
+    print(f"Selection sort realizado em: {datetime.datetime.now()-inicio}")
 
 def grafico_individual(dicionario:dict,quantidade_elementos:list):
     plt.figure(figsize=(8.27,6))
@@ -85,12 +114,11 @@ elementos_iteracao = 100
 
 # quantidade = np.arange(0,)
 # step = maximo/quantidade_divisao
+
 for i in range(1,quantidade_iteracao+1,1):
     vetor = np.arange(0,elementos_iteracao*i,1)
-    # print(vetor)
     print(f"Etapa: {i}/{quantidade_iteracao}")
     shuffle(vetor)
-
     vetor_heap= vetor.copy()
     vetor_bubble= vetor.copy()
     vetor_quicksort=vetor.copy()
@@ -101,6 +129,5 @@ for i in range(1,quantidade_iteracao+1,1):
     quicksort_comeco(vetor_quicksort,dicionario["Quicksort inicio"])
     quicksort_meio(vetor_quicksort_meio,dicionario["Quicksort meio"])
     print()
-
 grafico_individual(dicionario=dicionario,quantidade_elementos=quantidade_elementos)
 grafico_todos(dicionario=dicionario,quantidade_elementos=quantidade_elementos)
