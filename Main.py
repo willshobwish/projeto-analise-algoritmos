@@ -16,7 +16,7 @@ def shuffle(vetor):
     random.shuffle(vetor)
     print(f"Shuffle realizado em: {datetime.datetime.now()-inicio}")
 
-def heapsort(vetor,tempos):
+def heap(vetor,tempos):
     inicio = datetime.datetime.now()
     Heapsort.heapSort(vetor)
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
@@ -63,7 +63,7 @@ def Shell(vetor,tempos):
     inicio = datetime.datetime.now()
     Shell_sort.shellSort(vetor,len(vetor))
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
-    print(f"Selection sort realizado em: {datetime.datetime.now()-inicio}")
+    print(f"Shell sort realizado em: {datetime.datetime.now()-inicio}")
 
 def grafico_individual(dicionario:dict,quantidade_elementos:list):
     plt.figure(figsize=(8.27,6))
@@ -103,7 +103,14 @@ def grafico_todos(dicionario:dict,quantidade_elementos:list):
 
 quantidade_elementos = []
 
-dicionario = {"Heapsort":[],"Bubblesort":[],"Quicksort inicio":[],"Quicksort meio":[]}
+dicionario = {"Bubble sort":[],
+              "Heap sort":[],
+              "Insertion sort":[],
+              "Merge sort":[],
+              "Quick sort inicio":[],
+              "Quick sort meio":[],
+              "Selection sort":[],
+              "Shell sort":[]}
 quantidade_divisao_tempo_grafico = 25
 
 
@@ -124,10 +131,12 @@ for i in range(1,quantidade_iteracao+1,1):
     vetor_quicksort=vetor.copy()
     vetor_quicksort_meio=vetor.copy()
     quantidade_elementos.append(len(vetor))
-    heapsort(vetor_heap,dicionario["Heapsort"])
-    bubble(vetor_bubble,dicionario["Bubblesort"])
-    quicksort_comeco(vetor_quicksort,dicionario["Quicksort inicio"])
-    quicksort_meio(vetor_quicksort_meio,dicionario["Quicksort meio"])
+    bubble(vetor_bubble,dicionario["Bubble sort"])
+    heap(veotrhear)
+    # heapsort(vetor_heap,dicionario["Heapsort"])
+    # bubble(vetor_bubble,dicionario["Bubblesort"])
+    # quicksort_comeco(vetor_quicksort,dicionario["Quicksort inicio"])
+    # quicksort_meio(vetor_quicksort_meio,dicionario["Quicksort meio"])
     print()
 grafico_individual(dicionario=dicionario,quantidade_elementos=quantidade_elementos)
 grafico_todos(dicionario=dicionario,quantidade_elementos=quantidade_elementos)
