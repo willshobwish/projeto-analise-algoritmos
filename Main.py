@@ -10,6 +10,7 @@ import Merge_sort
 import Shell_sort
 import Selection_sort
 import pandas
+import os 
 
 def shuffle(vetor):
     inicio = datetime.datetime.now()
@@ -78,7 +79,8 @@ def grafico_individual(dicionario:dict,quantidade_elementos:list):
         plt.ylabel("Tempo em segundos")
         plt.legend()
         name = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
-        plt.savefig(f"{name} {sorts}.png",dpi=300,format="png")
+        os.makedirs("Graficos",exist_ok=True)
+        plt.savefig(os.path.join("Graficos",f"{name} {sorts}.png"),dpi=300,format="png")
         plt.clf()
 
 
@@ -97,8 +99,9 @@ def grafico_todos(dicionario:dict,quantidade_elementos:list):
     plt.ylabel("Tempo em segundos")
     plt.legend()
     name = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
-    plt.savefig(f"{name} all.png",dpi=300,format="png")
-    pandas.DataFrame(dicionario).to_csv(f"{name}.csv",index=False)
+    os.makedirs("Graficos",exist_ok=True)
+    plt.savefig(os.path.join("Graficos",f"{name} all.png"),dpi=300,format="png")
+    pandas.DataFrame(dicionario).to_csv(os.path.join("Graficos",f"{name}.csv"),index=False)
     plt.clf()
 
 quantidade_elementos = []
@@ -115,9 +118,10 @@ quantidade_divisao_tempo_grafico = 25
 
 
 # quantidade_divisao = int(input("Quantidade de vetor: "))
-quantidade_iteracao = 40
+quantidade_iteracao = int(input("Quantidade de iterações: "))
+
 # maximo = int(input("Numero de elementos maximos em um vetor: "))
-elementos_iteracao = 100
+elementos_iteracao = int(input("Quantidade de elementos por iteração: "))
 
 # quantidade = np.arange(0,)
 # step = maximo/quantidade_divisao
