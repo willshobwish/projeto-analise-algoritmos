@@ -66,7 +66,7 @@ def Shell(vetor,tempos):
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
     print(f"Shell sort realizado em: {datetime.datetime.now()-inicio}")
 
-def grafico_individual(dicionario:dict,quantidade_elementos:list):
+def grafico_individual(array_type:str, dicionario:dict,quantidade_elementos:list):
     plt.figure(figsize=(8.27,6))
     for sorts in dicionario.keys():
         plt.plot(quantidade_elementos,dicionario[sorts],label=sorts)
@@ -79,13 +79,12 @@ def grafico_individual(dicionario:dict,quantidade_elementos:list):
         plt.ylabel("Tempo em segundos")
         plt.legend()
         name = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
-        os.makedirs("Graficos",exist_ok=True)
-        plt.savefig(os.path.join("Graficos",f"{name} {sorts}.png"),dpi=300,format="png")
+        os.makedirs(f"Graficos {array_type}",exist_ok=True)
+        plt.savefig(os.path.join(f"Graficos {array_type}",f"{name} {sorts}.png"),dpi=300,format="png")
         plt.clf()
 
 
-def grafico_todos(dicionario:dict,quantidade_elementos:list):
-
+def grafico_todos(array_type:str, dicionario:dict,quantidade_elementos:list):
     tempo_maximo = []
     for sorts in dicionario.keys():
         tempo_maximo.extend(dicionario[sorts])
@@ -99,21 +98,12 @@ def grafico_todos(dicionario:dict,quantidade_elementos:list):
     plt.ylabel("Tempo em segundos")
     plt.legend()
     name = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
-    os.makedirs("Graficos",exist_ok=True)
-    plt.savefig(os.path.join("Graficos",f"{name} all.png"),dpi=300,format="png")
-    pandas.DataFrame(dicionario).to_csv(os.path.join("Graficos",f"{name}.csv"),index=False)
+    os.makedirs(f"Graficos {array_type}",exist_ok=True)
+    plt.savefig(os.path.join(f"Graficos {array_type}",f"{name} all.png"),dpi=300,format="png")
+    pandas.DataFrame(dicionario).to_csv(os.path.join(f"Graficos {array_type}",f"{name}.csv"),index=False)
     plt.clf()
 
-quantidade_elementos = []
 
-dicionario = {"Bubble sort":[],
-              "Heap sort":[],
-              "Insertion sort":[],
-              "Merge sort":[],
-              "Quick sort inicio":[],
-              "Quick sort meio":[],
-              "Selection sort":[],
-              "Shell sort":[]}
 quantidade_divisao_tempo_grafico = 25
 
 
@@ -126,31 +116,45 @@ elementos_iteracao = int(input("Quantidade de elementos por iteração: "))
 # quantidade = np.arange(0,)
 # step = maximo/quantidade_divisao
 
-for i in range(1,quantidade_iteracao+1,1):
-    vetor = np.arange(0,elementos_iteracao*i,1)
-    print(f"Etapa: {i}/{quantidade_iteracao}")
-    shuffle(vetor)
-    vetor_heap = vetor.copy()
-    vetor_bubble = vetor.copy()
-    vetor_quicksort = vetor.copy()
-    vetor_quicksort_meio=vetor.copy()
-    vetor_insert = vetor.copy()
-    vetor_merge = vetor.copy()
-    vetor_selection = vetor.copy()
-    vetor_shell = vetor.copy()
-    quantidade_elementos.append(len(vetor))
-    bubble(vetor_bubble,dicionario["Bubble sort"])
-    heap(vetor_heap,dicionario["Heap sort"])
-    Insertion(vetor_insert,dicionario["Insertion sort"])
-    Merge(vetor_merge,dicionario["Merge sort"])
-    quicksort_comeco(vetor_quicksort,dicionario["Quick sort inicio"])
-    quicksort_meio(vetor_quicksort_meio,dicionario["Quick sort meio"])
-    Selection(vetor_selection,dicionario["Selection sort"])
-    Shell(vetor_shell,dicionario["Shell sort"])
-    # heapsort(vetor_heap,dicionario["Heapsort"])
-    # bubble(vetor_bubble,dicionario["Bubblesort"])
-    # quicksort_comeco(vetor_quicksort,dicionario["Quicksort inicio"])
-    # quicksort_meio(vetor_quicksort_meio,dicionario["Quicksort meio"])
-    print()
-grafico_individual(dicionario=dicionario,quantidade_elementos=quantidade_elementos)
-grafico_todos(dicionario=dicionario,quantidade_elementos=quantidade_elementos)
+def sorting(sorting_method:list):
+    
+    for each_sorting_method in sorting_method:
+        quantidade_elementos = []
+        dicionario = {"Bubble sort":[],
+              "Heap sort":[],
+              "Insertion sort":[],
+              "Merge sort":[],
+              "Quick sort inicio":[],
+              "Quick sort meio":[],
+              "Selection sort":[],
+              "Shell sort":[]}
+        for i in range(1,quantidade_iteracao+1,1):
+            vetor = np.arange(0,elementos_iteracao*i,1)
+            print(f"Etapa: {i}/{quantidade_iteracao}")
+            if each_sorting_method=="Aleatório":
+                shuffle(vetor)
+            if each_sorting_method == "Decrescente":
+                vetor[::-1].sort()
+            # Caso seja crescente, nao realiza nada porque o vetor ja eh instanciado de forma crescente
+            vetor_heap = vetor.copy()
+            vetor_bubble = vetor.copy()
+            vetor_quicksort = vetor.copy()
+            vetor_quicksort_meio=vetor.copy()
+            vetor_insert = vetor.copy()
+            vetor_merge = vetor.copy()
+            vetor_selection = vetor.copy()
+            vetor_shell = vetor.copy()
+            quantidade_elementos.append(len(vetor))
+            bubble(vetor_bubble,dicionario["Bubble sort"])
+            heap(vetor_heap,dicionario["Heap sort"])
+            Insertion(vetor_insert,dicionario["Insertion sort"])
+            Merge(vetor_merge,dicionario["Merge sort"])
+            quicksort_comeco(vetor_quicksort,dicionario["Quick sort inicio"])
+            quicksort_meio(vetor_quicksort_meio,dicionario["Quick sort meio"])
+            Selection(vetor_selection,dicionario["Selection sort"])
+            Shell(vetor_shell,dicionario["Shell sort"])
+            print()
+        grafico_individual(array_type=each_sorting_method, dicionario=dicionario,quantidade_elementos=quantidade_elementos)
+        grafico_todos(array_type=each_sorting_method, dicionario=dicionario,quantidade_elementos=quantidade_elementos)
+
+sorting(["Aleatório","Decresente","Crescente"])
