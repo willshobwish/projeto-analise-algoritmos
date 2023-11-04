@@ -9,6 +9,7 @@ import Insertion_sort
 import Merge_sort
 import Shell_sort
 import Selection_sort
+import Bubblesort_optimized
 import pandas
 import os 
 
@@ -66,6 +67,12 @@ def Shell(vetor,tempos):
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
     print(f"Shell sort realizado em: {datetime.datetime.now()-inicio}")
 
+def bubble_optimized(vetor,tempos):
+    inicio = datetime.datetime.now()
+    Bubblesort_optimized.bubbleSort(vetor)
+    tempos.append((datetime.datetime.now()-inicio).total_seconds())
+    print(f"Bubble sort otimizado realizado em: {datetime.datetime.now()-inicio}")
+
 def grafico_individual(array_type:str, dicionario:dict,quantidade_elementos:list):
     plt.figure(figsize=(8.27,6))
     for sorts in dicionario.keys():
@@ -120,7 +127,9 @@ def sorting(sorting_method:list):
     
     for each_sorting_method in sorting_method:
         quantidade_elementos = []
-        dicionario = {"Bubble sort":[],
+        dicionario = {
+              "Bubble sort":[],
+              "Bubble sort otimizado":[],
               "Heap sort":[],
               "Insertion sort":[],
               "Merge sort":[],
@@ -144,6 +153,7 @@ def sorting(sorting_method:list):
             vetor_merge = vetor.copy()
             vetor_selection = vetor.copy()
             vetor_shell = vetor.copy()
+            vetor_bubble_optimized = vetor.copy()
             quantidade_elementos.append(len(vetor))
             bubble(vetor_bubble,dicionario["Bubble sort"])
             heap(vetor_heap,dicionario["Heap sort"])
@@ -153,6 +163,7 @@ def sorting(sorting_method:list):
             quicksort_meio(vetor_quicksort_meio,dicionario["Quick sort meio"])
             Selection(vetor_selection,dicionario["Selection sort"])
             Shell(vetor_shell,dicionario["Shell sort"])
+            bubble_optimized(vetor_bubble_optimized,dicionario["Bubble sort otimizado"])
             print()
         grafico_individual(array_type=each_sorting_method, dicionario=dicionario,quantidade_elementos=quantidade_elementos)
         grafico_todos(array_type=each_sorting_method, dicionario=dicionario,quantidade_elementos=quantidade_elementos)
