@@ -1,8 +1,8 @@
-def bubbleSort(arr):
-    n = len(arr)
+def bubbleSort(array:list):
+    n = len(array)
     # optimize code, so if the array is already sorted, it doesn't need
     # to go through the entire process
-    swapped = False
+    trocado = False
     # Traverse through all array elements
     for i in range(n-1):
         # range(n) also work but outer loop will
@@ -13,11 +13,11 @@ def bubbleSort(arr):
             # traverse the array from 0 to n-i-1
             # Swap if the element found is greater
             # than the next element
-            if arr[j] > arr[j + 1]:
-                swapped = True
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            if array[j] > array[j + 1]:
+                trocado = True
+                array[j], array[j + 1] = array[j + 1], array[j]
          
-        if not swapped:
+        if not trocado:
             # if we haven't needed to make a single swap, we
             # can just exit the main loop.
             return
