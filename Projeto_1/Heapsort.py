@@ -1,26 +1,26 @@
-def heapify(arr, n, i):
-    # Find largest among root and children
-    largest = i
-    l = 2 * i + 1
-    r = 2 * i + 2
-    if l < n and arr[i] < arr[l]:
-        largest = l
-    if r < n and arr[largest] < arr[r]:
-        largest = r
-    # If root is not largest, swap with largest and continue heapifying
-    if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
-        heapify(arr, n, largest)
+def heapify(array, n, i):
+    # Acha o maior entre os nos e as folhas
+    maior = i
+    esquerda = 2 * i + 1
+    direita = 2 * i + 2
+    if esquerda < n and array[i] < array[esquerda]:
+        maior = esquerda
+    if direita < n and array[maior] < array[direita]:
+        maior = direita
+    # Caso a raiz nao eh o maior, faz a troca e continua procurando
+    if maior != i:
+        array[i], array[maior] = array[maior], array[i]
+        heapify(array, n, maior)
 
-def heapSort(arr):
-    n = len(arr)
-    # Build max heap
+def heapSort(array):
+    n = len(array)
+    # Heap maximo
     for i in range(n//2, -1, -1):
-        heapify(arr, n, i)
+        heapify(array, n, i)
 
     for i in range(n-1, 0, -1):
-        # Swap
-        arr[i], arr[0] = arr[0], arr[i]
+        # Troca os elementos
+        array[i], array[0] = array[0], array[i]
 
-        # Heapify root element
-        heapify(arr, i, 0)
+        # Troca a raiz
+        heapify(array, i, 0)

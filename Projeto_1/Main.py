@@ -32,15 +32,15 @@ def bubble(vetor,tempos):
 
 def quicksort_comeco(vetor,tempos):
     inicio = datetime.datetime.now()
-    Quicksort.quickSortIterative(vetor,0,len(vetor)-1)
+    Quicksort.quicksort_iterativo(vetor,0,len(vetor)-1)
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
-    print(f"Quicksort realizado em: {datetime.datetime.now()-inicio}")
+    print(f"Quicksort com o pivô inicial realizado em: {datetime.datetime.now()-inicio}")
 
 def quicksort_meio(vetor,tempos):
     inicio = datetime.datetime.now()
-    Quicksort.quickSortIterative(vetor,int(np.floor(len(vetor)/2)),len(vetor)-1)
+    Quicksort.quicksort_iterativo(vetor,int(np.floor(len(vetor)/2)),len(vetor)-1)
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
-    print(f"Quicksort realizado em: {datetime.datetime.now()-inicio}")
+    print(f"Quicksort com o pivô no meio realizado em: {datetime.datetime.now()-inicio}")
 
 
 def Insertion(vetor,tempos):
@@ -63,7 +63,7 @@ def Selection(vetor,tempos):
 
 def Shell(vetor,tempos):
     inicio = datetime.datetime.now()
-    Shell_sort.shellSort(vetor,len(vetor))
+    Shell_sort.shellSort(vetor)
     tempos.append((datetime.datetime.now()-inicio).total_seconds())
     print(f"Shell sort realizado em: {datetime.datetime.now()-inicio}")
 
