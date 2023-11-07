@@ -1,14 +1,14 @@
-def partition(array, l, h): 
+def particao(array, l, h): 
     i = ( l - 1 ) 
     x = array[h] 
     for j in range(l, h): 
-        if   array[j] <= x: 
+        if array[j] <= x: 
             i = i + 1
             array[i], array[j] = array[j], array[i]   
     array[i + 1], array[h] = array[h], array[i + 1] 
     return (i + 1) 
 
-def quickSortIterative(array:list, l:int, h:int): 
+def quicksort_iterativo(array:list, l:int, h:int): 
     tamanho = h - l + 1
     pilha = [0] * (tamanho) 
     topo = -1
@@ -21,7 +21,7 @@ def quickSortIterative(array:list, l:int, h:int):
         topo = topo - 1
         l = pilha[topo] 
         topo = topo - 1
-        p = partition( array, l, h ) 
+        p = particao(array, l, h) 
         if p-1 > l: 
             topo = topo + 1
             pilha[topo] = l 
