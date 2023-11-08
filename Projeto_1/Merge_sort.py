@@ -2,7 +2,7 @@ def merge(array, esquerda, meio, direita):
     index_1 = meio - esquerda + 1
     index_2 = direita - meio
  
-    # create temp arrays
+    # Cria vetores temporarios
     vetor_esquerda = [0] * (index_1)
     vetor_direita = [0] * (index_2)
 
