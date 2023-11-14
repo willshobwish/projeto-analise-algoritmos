@@ -27,123 +27,123 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        AssignmentProblem = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        FractionalKnapsackProblem = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        CodificacaoHuffman = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        KnapsackProblem = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        LongestCommonSubsequence = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Branch and bound");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout AssignmentProblemLayout = new javax.swing.GroupLayout(AssignmentProblem);
+        AssignmentProblem.setLayout(AssignmentProblemLayout);
+        AssignmentProblemLayout.setHorizontalGroup(
+            AssignmentProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AssignmentProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(753, Short.MAX_VALUE))
+                .addContainerGap(756, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        AssignmentProblemLayout.setVerticalGroup(
+            AssignmentProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AssignmentProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addContainerGap(485, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Assignment problem", jPanel1);
+        jTabbedPane1.addTab("Assignment problem", AssignmentProblem);
 
         jLabel3.setText("Algoritmo guloso");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout FractionalKnapsackProblemLayout = new javax.swing.GroupLayout(FractionalKnapsackProblem);
+        FractionalKnapsackProblem.setLayout(FractionalKnapsackProblemLayout);
+        FractionalKnapsackProblemLayout.setHorizontalGroup(
+            FractionalKnapsackProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FractionalKnapsackProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addContainerGap(761, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        FractionalKnapsackProblemLayout.setVerticalGroup(
+            FractionalKnapsackProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FractionalKnapsackProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addContainerGap(485, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Fractional Knapsack problem", jPanel2);
+        jTabbedPane1.addTab("Fractional Knapsack problem", FractionalKnapsackProblem);
 
         jLabel2.setText("Algoritmo guloso");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout CodificacaoHuffmanLayout = new javax.swing.GroupLayout(CodificacaoHuffman);
+        CodificacaoHuffman.setLayout(CodificacaoHuffmanLayout);
+        CodificacaoHuffmanLayout.setHorizontalGroup(
+            CodificacaoHuffmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CodificacaoHuffmanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addContainerGap(761, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        CodificacaoHuffmanLayout.setVerticalGroup(
+            CodificacaoHuffmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CodificacaoHuffmanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addContainerGap(485, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Codificação de Huffman", jPanel3);
+        jTabbedPane1.addTab("Codificação de Huffman", CodificacaoHuffman);
 
         jLabel4.setText("Programação Dinâmica");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout KnapsackProblemLayout = new javax.swing.GroupLayout(KnapsackProblem);
+        KnapsackProblem.setLayout(KnapsackProblemLayout);
+        KnapsackProblemLayout.setHorizontalGroup(
+            KnapsackProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KnapsackProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(727, Short.MAX_VALUE))
+                .addContainerGap(730, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        KnapsackProblemLayout.setVerticalGroup(
+            KnapsackProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KnapsackProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addContainerGap(485, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Knapsack problem", jPanel4);
+        jTabbedPane1.addTab("Knapsack problem", KnapsackProblem);
 
         jLabel5.setText("Programação Dinâmica");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout LongestCommonSubsequenceLayout = new javax.swing.GroupLayout(LongestCommonSubsequence);
+        LongestCommonSubsequence.setLayout(LongestCommonSubsequenceLayout);
+        LongestCommonSubsequenceLayout.setHorizontalGroup(
+            LongestCommonSubsequenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LongestCommonSubsequenceLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addContainerGap(727, Short.MAX_VALUE))
+                .addContainerGap(730, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        LongestCommonSubsequenceLayout.setVerticalGroup(
+            LongestCommonSubsequenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LongestCommonSubsequenceLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addContainerGap(485, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Longest Common Subsequence", jPanel5);
+        jTabbedPane1.addTab("Longest Common Subsequence", LongestCommonSubsequence);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,16 +199,16 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AssignmentProblem;
+    private javax.swing.JPanel CodificacaoHuffman;
+    private javax.swing.JPanel FractionalKnapsackProblem;
+    private javax.swing.JPanel KnapsackProblem;
+    private javax.swing.JPanel LongestCommonSubsequence;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
