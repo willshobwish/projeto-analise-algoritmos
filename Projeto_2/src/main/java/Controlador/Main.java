@@ -261,7 +261,7 @@ public class Main extends javax.swing.JFrame {
     private void tableToString(){
          for(int row = 0;row<jTable1.getRowCount();row++){
             for(int column = 0;column<jTable1.getColumnCount();column++){
-                System.out.print(jTable1.getValueAt(row, 0)+" ");
+                System.out.print(jTable1.getValueAt(row, column)+" ");
             }
             System.out.println("");
         }
