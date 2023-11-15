@@ -4,6 +4,11 @@
  */
 package Controlador;
 
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author willianmurayama
@@ -29,6 +34,11 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         AssignmentProblem = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         FractionalKnapsackProblem = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         CodificacaoHuffman = new javax.swing.JPanel();
@@ -42,21 +52,83 @@ public class Main extends javax.swing.JFrame {
 
         jLabel1.setText("Branch and bound");
 
+        jScrollPane1.setToolTipText("");
+        jScrollPane1.setColumnHeaderView(null);
+        jScrollPane1.setRowHeaderView(null);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jButton1.setText("Adicionar pessoas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Adicionar tarefas");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout AssignmentProblemLayout = new javax.swing.GroupLayout(AssignmentProblem);
         AssignmentProblem.setLayout(AssignmentProblemLayout);
         AssignmentProblemLayout.setHorizontalGroup(
             AssignmentProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AssignmentProblemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(756, Short.MAX_VALUE))
+                .addGroup(AssignmentProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AssignmentProblemLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         AssignmentProblemLayout.setVerticalGroup(
             AssignmentProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AssignmentProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Assignment problem", AssignmentProblem);
@@ -70,14 +142,14 @@ public class Main extends javax.swing.JFrame {
             .addGroup(FractionalKnapsackProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(761, Short.MAX_VALUE))
+                .addContainerGap(692, Short.MAX_VALUE))
         );
         FractionalKnapsackProblemLayout.setVerticalGroup(
             FractionalKnapsackProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FractionalKnapsackProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Fractional Knapsack problem", FractionalKnapsackProblem);
@@ -91,14 +163,14 @@ public class Main extends javax.swing.JFrame {
             .addGroup(CodificacaoHuffmanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(761, Short.MAX_VALUE))
+                .addContainerGap(692, Short.MAX_VALUE))
         );
         CodificacaoHuffmanLayout.setVerticalGroup(
             CodificacaoHuffmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CodificacaoHuffmanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Codificação de Huffman", CodificacaoHuffman);
@@ -112,14 +184,14 @@ public class Main extends javax.swing.JFrame {
             .addGroup(KnapsackProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(730, Short.MAX_VALUE))
+                .addContainerGap(661, Short.MAX_VALUE))
         );
         KnapsackProblemLayout.setVerticalGroup(
             KnapsackProblemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KnapsackProblemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Knapsack problem", KnapsackProblem);
@@ -133,14 +205,14 @@ public class Main extends javax.swing.JFrame {
             .addGroup(LongestCommonSubsequenceLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addContainerGap(730, Short.MAX_VALUE))
+                .addContainerGap(661, Short.MAX_VALUE))
         );
         LongestCommonSubsequenceLayout.setVerticalGroup(
             LongestCommonSubsequenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LongestCommonSubsequenceLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Longest Common Subsequence", LongestCommonSubsequence);
@@ -150,7 +222,7 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
@@ -163,6 +235,37 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
+        table.addRow(new Object[table.getColumnCount()]);
+        jTable1.setModel(table);
+//        jTable1.setModel();
+        tableToString();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
+//        table.addRow(new Object[table.getColumnCount
+        if (table.getColumnCount() == 0){
+            table.addColumn("Pessoa");
+        }else{
+            table.addColumn("Trabalho " + table.getColumnCount());
+        }
+        jTable1.setModel(table);
+        tableToString();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tableToString(){
+         for(int row = 0;row<jTable1.getRowCount();row++){
+            for(int column = 0;column<jTable1.getColumnCount();column++){
+                System.out.print(jTable1.getValueAt(row, 0)+" ");
+            }
+            System.out.println("");
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -204,11 +307,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel FractionalKnapsackProblem;
     private javax.swing.JPanel KnapsackProblem;
     private javax.swing.JPanel LongestCommonSubsequence;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
