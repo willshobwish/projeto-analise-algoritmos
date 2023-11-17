@@ -49,7 +49,7 @@ public class Main extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TableFractionalKnapsackProblem = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
         CodificacaoHuffman = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -203,7 +203,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TableFractionalKnapsackProblem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -211,7 +211,7 @@ public class Main extends javax.swing.JFrame {
                 "Indice", "Valor", "Peso"
             }
         ));
-        jScrollPane4.setViewportView(jTable2);
+        jScrollPane4.setViewportView(TableFractionalKnapsackProblem);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -655,18 +655,18 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel table = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel table = (DefaultTableModel) TableFractionalKnapsackProblem.getModel();
         table.addRow(new Object[]{table.getRowCount(),"",""});
-        jTable2.setModel(table);
+        TableFractionalKnapsackProblem.setModel(table);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel table = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel table = (DefaultTableModel) TableFractionalKnapsackProblem.getModel();
         if(table.getRowCount()>0){
             table.removeRow(table.getRowCount()-1);
         }
-        jTable2.setModel(table);
+        TableFractionalKnapsackProblem.setModel(table);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tableToString(){
@@ -718,6 +718,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel FractionalKnapsackProblem;
     private javax.swing.JPanel KnapsackProblem;
     private javax.swing.JPanel LongestCommonSubsequence;
+    private javax.swing.JTable TableFractionalKnapsackProblem;
     private javax.swing.JButton adicionarItemMochila;
     private javax.swing.JButton adicionarPessoas;
     private javax.swing.JButton adicionarTarefas;
@@ -749,7 +750,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
