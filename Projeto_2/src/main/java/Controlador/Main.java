@@ -482,7 +482,6 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setFocusable(false);
@@ -490,7 +489,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel12.setText("Resultado");
 
-        jTextField6.setEditable(false);
         jTextField6.setFocusable(false);
 
         javax.swing.GroupLayout LongestCommonSubsequenceLayout = new javax.swing.GroupLayout(LongestCommonSubsequence);
@@ -542,6 +540,7 @@ public class Main extends javax.swing.JFrame {
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
+        jTextArea3.setFocusable(false);
         jScrollPane6.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout CodificacaoHuffmanLayout = new javax.swing.GroupLayout(CodificacaoHuffman);
