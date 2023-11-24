@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controlador;
+package Models.Lcs;
 
 /**
  *
@@ -17,11 +17,10 @@ public class Lcs {
     private String resultado;
     private int max;
 
-    public Lcs(String string_1, String stirng_2) {
-        this.string_1 = string_1;
-        this.string_2 = stirng_2;
-        len_string_1 = this.string_1.length();
-        len_string_2 = this.string_2.length();
+    public Lcs() {
+//        this.string_1 = string_1;
+//        this.string_2 = stirng_2;
+
     }
 
     public int calcula(String string_a, String string_b, int len_string_a, int len_string_b) {
@@ -47,6 +46,7 @@ public class Lcs {
 
     public void setString_1(String string_1) {
         this.string_1 = string_1;
+        len_string_1 = this.string_1.length();
     }
 
     public String getStirng_2() {
@@ -55,6 +55,7 @@ public class Lcs {
 
     public void setStirng_2(String stirng_2) {
         this.string_2 = stirng_2;
+        len_string_2 = this.string_2.length();
     }
 
     public String getResultado() {

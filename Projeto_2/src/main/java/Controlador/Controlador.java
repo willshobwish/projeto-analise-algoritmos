@@ -4,13 +4,19 @@
  */
 package Controlador;
 
+import Models.HuffmanCode.Huffman;
+import Models.Lcs.Lcs;
+import Models.Mochila.Mochila;
+
 /**
  *
  * @author willianmurayama
  */
 public class Controlador {
     private static final Controlador instance = new Controlador();
-    
+    private Mochila mochila = new Mochila();
+    private Huffman huffman = new Huffman();
+    private Lcs lcs = new Lcs();
     private Controlador(){
         
     }

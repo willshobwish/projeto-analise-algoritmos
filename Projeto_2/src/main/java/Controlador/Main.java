@@ -73,7 +73,7 @@ public class Main extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        calculaLcs = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         CodificacaoHuffman = new javax.swing.JPanel();
@@ -450,7 +450,12 @@ public class Main extends javax.swing.JFrame {
 
         jLabel9.setText("Segunda string");
 
-        jButton5.setText("Calcular");
+        calculaLcs.setText("Calcular");
+        calculaLcs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculaLcsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -464,7 +469,7 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(calculaLcs, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(804, Short.MAX_VALUE))
                     .addComponent(jTextField5)))
         );
@@ -480,7 +485,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(calculaLcs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -719,6 +724,11 @@ public class Main extends javax.swing.JFrame {
         TableFractionalKnapsackProblem.setModel(table);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void calculaLcsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculaLcsActionPerformed
+        // TODO add your handling code here:
+        Controlador.getInstance();
+    }//GEN-LAST:event_calculaLcsActionPerformed
+
     private void tableToString(){
          for(int row = 0;row<jTable1.getRowCount();row++){
             for(int column = 0;column<jTable1.getColumnCount();column++){
@@ -772,11 +782,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton adicionarItemMochila;
     private javax.swing.JButton adicionarPessoas;
     private javax.swing.JButton adicionarTarefas;
+    private javax.swing.JButton calculaLcs;
     private javax.swing.JButton definirPesoMochila;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

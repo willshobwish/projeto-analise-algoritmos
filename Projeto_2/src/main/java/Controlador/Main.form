@@ -630,7 +630,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton5" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <Component id="calculaLcs" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="804" max="32767" attributes="0"/>
                               </Group>
@@ -651,7 +651,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                          <Component id="calculaLcs" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -672,10 +672,13 @@
                     <Property name="text" type="java.lang.String" value="Segunda string"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton5">
+                <Component class="javax.swing.JButton" name="calculaLcs">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Calcular"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calculaLcsActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
