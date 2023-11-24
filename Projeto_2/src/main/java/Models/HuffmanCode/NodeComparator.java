@@ -13,9 +13,9 @@ import java.util.Comparator;
  *
  * @author Willian Murayama
  */
-public class NodeComparator implements Comparator<Node>{
-     public int compare(Node x, Node y) 
+public class NodeComparator implements Comparator<NodeHuffman>{
+     public int compare(NodeHuffman x, NodeHuffman y) 
     { 
-        return x.data - y.data; 
+        return x.codigo - y.codigo; 
     } 
 }

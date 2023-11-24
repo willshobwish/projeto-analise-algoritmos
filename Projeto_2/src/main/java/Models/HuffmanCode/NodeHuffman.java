@@ -8,12 +8,12 @@ package Models.HuffmanCode;
  *
  * @author Willian Murayama
  */
-public class Node {
+public class NodeHuffman {
 
-    int data;
-    char c;
+    int codigo;
+    char caractere;
 
-    Node left;
-    Node right;
+    NodeHuffman esquerda;
+    NodeHuffman direira;
 
 }
