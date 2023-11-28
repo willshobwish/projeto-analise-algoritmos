@@ -518,9 +518,9 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(LongestCommonSubsequenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField6)
                             .addGroup(LongestCommonSubsequenceLayout.createSequentialGroup()
-                                .addGroup(LongestCommonSubsequenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
+                                .addGroup(LongestCommonSubsequenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField1))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -744,6 +744,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        Controlador.getInstance().getLcs().setString_1(textString1.getText());
 //        Controlador.getInstance().getLcs().setString_2(textString2.getText());
+        jTextField6.setText(Controlador.getInstance().getLcs().getResultado());
         jTextField1.setText(Integer.toString(Controlador.getInstance().getLcs().calcula(textString1.getText(), textString2.getText(), textString1.getText().length(), textString2.getText().length())));
     }//GEN-LAST:event_calculaLcsActionPerformed
 
