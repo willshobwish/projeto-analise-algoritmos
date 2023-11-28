@@ -18,21 +18,17 @@ public class Lcs {
     private int max;
 
     public Lcs() {
-//        this.string_1 = string_1;
-//        this.string_2 = stirng_2;
-
     }
 
     public int calcula(String string_a, String string_b, int len_string_a, int len_string_b) {
-        if (len_string_1 == 0 || len_string_2 == 0) {
+        if (len_string_a == 0 || len_string_b == 0) {
             return 0;
         }
-        if (string_1.charAt(len_string_1 - 1) == string_2.charAt(len_string_2 - 1)) {
-            resultado += string_1.charAt(len_string_1 - 1);
-            return 1 + calcula(string_1, string_2, len_string_1 - 1, len_string_2 - 1);
+        if (string_a.charAt(len_string_a - 1) == string_b.charAt(len_string_b - 1)) {
+            return 1 + calcula(string_a, string_b, len_string_a - 1, len_string_b - 1);
         } else {
-            return max(calcula(string_1, string_2, len_string_1, len_string_2 - 1),
-                    calcula(string_1, string_2, len_string_1 - 1, len_string_2));
+            return max(calcula(string_a, string_b, len_string_a, len_string_b - 1),
+                    calcula(string_a, string_b, len_string_a - 1, len_string_b));
         }
     }
 
@@ -47,6 +43,11 @@ public class Lcs {
     public void setString_1(String string_1) {
         this.string_1 = string_1;
         len_string_1 = this.string_1.length();
+    }
+
+    public void setString_2(String string_2) {
+        this.string_2 = string_2;
+        len_string_2 = this.string_2.length();
     }
 
     public String getStirng_2() {

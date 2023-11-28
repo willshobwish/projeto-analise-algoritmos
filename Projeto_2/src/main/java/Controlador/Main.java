@@ -13,10 +13,9 @@ import javax.swing.table.DefaultTableModel;
  * @author willianmurayama
  */
 public class Main extends javax.swing.JFrame {
-    
-    
-    
+
     private Mochila mochila = new Mochila();
+
     /**
      * Creates new form Main
      */
@@ -69,13 +68,15 @@ public class Main extends javax.swing.JFrame {
         LongestCommonSubsequence = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        textString1 = new javax.swing.JTextField();
+        textString2 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         calculaLcs = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         CodificacaoHuffman = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -464,14 +465,14 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4)
+                    .addComponent(textString1)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
                             .addComponent(calculaLcs, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(804, Short.MAX_VALUE))
-                    .addComponent(jTextField5)))
+                        .addContainerGap(773, Short.MAX_VALUE))
+                    .addComponent(textString2)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,11 +480,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textString1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textString2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(calculaLcs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -492,6 +493,10 @@ public class Main extends javax.swing.JFrame {
         jLabel12.setText("Resultado");
 
         jTextField6.setFocusable(false);
+
+        jLabel6.setText("Tamanho da string");
+
+        jTextField1.setFocusable(false);
 
         javax.swing.GroupLayout LongestCommonSubsequenceLayout = new javax.swing.GroupLayout(LongestCommonSubsequence);
         LongestCommonSubsequence.setLayout(LongestCommonSubsequenceLayout);
@@ -510,7 +515,13 @@ public class Main extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(LongestCommonSubsequenceLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jTextField6)))
+                        .addGroup(LongestCommonSubsequenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField6)
+                            .addGroup(LongestCommonSubsequenceLayout.createSequentialGroup()
+                                .addGroup(LongestCommonSubsequenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         LongestCommonSubsequenceLayout.setVerticalGroup(
@@ -524,7 +535,11 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(481, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(431, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Longest Common Subsequence", LongestCommonSubsequence);
@@ -640,9 +655,10 @@ public class Main extends javax.swing.JFrame {
     private void adicionarPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarPessoasActionPerformed
         // TODO add your handling code here:
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
-        if(table.getColumnCount()>0){
+        if (table.getColumnCount() > 0) {
             table.addRow(new Object[table.getColumnCount()]);
-            jTable1.setModel(table);}
+            jTable1.setModel(table);
+        }
         tableToString();
 
     }//GEN-LAST:event_adicionarPessoasActionPerformed
@@ -651,9 +667,9 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
 //        table.addRow(new Object[table.getColumnCount
-        if (table.getColumnCount() == 0){
+        if (table.getColumnCount() == 0) {
             table.addColumn("Pessoa");
-        }else{
+        } else {
             table.addColumn("Trabalho " + table.getColumnCount());
         }
         jTable1.setModel(table);
@@ -666,11 +682,11 @@ public class Main extends javax.swing.JFrame {
 
     private void adicionarItemMochilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarItemMochilaActionPerformed
         // TODO add your handling code here:
-        ItensMochila item = new ItensMochila(Integer.parseInt(pesoItemMochilaText.getText()),Integer.parseInt(valorItemMochilaText.getText()));
+        ItensMochila item = new ItensMochila(Integer.parseInt(pesoItemMochilaText.getText()), Integer.parseInt(valorItemMochilaText.getText()));
         mochila.adicionarItem(item);
         DefaultTableModel table = (DefaultTableModel) tableItensMochila.getModel();
-        for(ItensMochila i:mochila.getItens()){
-            table.addRow(new Object[]{i.getPeso(),i.getValor()});
+        for (ItensMochila i : mochila.getItens()) {
+            table.addRow(new Object[]{i.getPeso(), i.getValor()});
         }
         tableItensMochila.setModel(table);
         pesoItemMochilaText.setText("0");
@@ -680,16 +696,16 @@ public class Main extends javax.swing.JFrame {
     private void removerTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerTarefasActionPerformed
         // TODO add your handling code here:
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
-        if(table.getColumnCount()>0){
-            table.setColumnCount(table.getColumnCount()-1);
+        if (table.getColumnCount() > 0) {
+            table.setColumnCount(table.getColumnCount() - 1);
         }
     }//GEN-LAST:event_removerTarefasActionPerformed
 
     private void removerPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerPessoasActionPerformed
         // TODO add your handling code here:
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
-        if(table.getRowCount()>0){        
-            table.removeRow(table.getRowCount()-1);
+        if (table.getRowCount() > 0) {
+            table.removeRow(table.getRowCount() - 1);
         }
     }//GEN-LAST:event_removerPessoasActionPerformed
 
@@ -711,32 +727,35 @@ public class Main extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         DefaultTableModel table = (DefaultTableModel) TableFractionalKnapsackProblem.getModel();
-        table.addRow(new Object[]{table.getRowCount(),"",""});
+        table.addRow(new Object[]{table.getRowCount(), "", ""});
         TableFractionalKnapsackProblem.setModel(table);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         DefaultTableModel table = (DefaultTableModel) TableFractionalKnapsackProblem.getModel();
-        if(table.getRowCount()>0){
-            table.removeRow(table.getRowCount()-1);
+        if (table.getRowCount() > 0) {
+            table.removeRow(table.getRowCount() - 1);
         }
         TableFractionalKnapsackProblem.setModel(table);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void calculaLcsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculaLcsActionPerformed
         // TODO add your handling code here:
-        Controlador.getInstance();
+//        Controlador.getInstance().getLcs().setString_1(textString1.getText());
+//        Controlador.getInstance().getLcs().setString_2(textString2.getText());
+        jTextField1.setText(Integer.toString(Controlador.getInstance().getLcs().calcula(textString1.getText(), textString2.getText(), textString1.getText().length(), textString2.getText().length())));
     }//GEN-LAST:event_calculaLcsActionPerformed
 
-    private void tableToString(){
-         for(int row = 0;row<jTable1.getRowCount();row++){
-            for(int column = 0;column<jTable1.getColumnCount();column++){
-                System.out.print(jTable1.getValueAt(row, column)+" ");
+    private void tableToString() {
+        for (int row = 0; row < jTable1.getRowCount(); row++) {
+            for (int column = 0; column < jTable1.getColumnCount(); column++) {
+                System.out.print(jTable1.getValueAt(row, column) + " ");
             }
             System.out.println("");
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -744,7 +763,7 @@ public class Main extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -795,6 +814,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -817,8 +837,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel labelTamanhoMochila;
     private javax.swing.JTextField pesoItemMochilaText;
@@ -826,6 +845,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton removerPessoas;
     private javax.swing.JButton removerTarefas;
     private javax.swing.JTable tableItensMochila;
+    private javax.swing.JTextField textString1;
+    private javax.swing.JTextField textString2;
     private javax.swing.JTextField valorItemMochilaText;
     // End of variables declaration//GEN-END:variables
 }
