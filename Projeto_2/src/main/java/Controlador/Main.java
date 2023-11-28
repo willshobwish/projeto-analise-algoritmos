@@ -744,8 +744,9 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        Controlador.getInstance().getLcs().setString_1(textString1.getText());
 //        Controlador.getInstance().getLcs().setString_2(textString2.getText());
-        jTextField6.setText(Controlador.getInstance().getLcs().getResultado());
+        Controlador.getInstance().getLcs().setResultado("");
         jTextField1.setText(Integer.toString(Controlador.getInstance().getLcs().calcula(textString1.getText(), textString2.getText(), textString1.getText().length(), textString2.getText().length())));
+        jTextField6.setText(Controlador.getInstance().getLcs().getResultado());
     }//GEN-LAST:event_calculaLcsActionPerformed
 
     private void tableToString() {

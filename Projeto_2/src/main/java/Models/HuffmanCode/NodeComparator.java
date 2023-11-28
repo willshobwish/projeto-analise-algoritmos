@@ -5,17 +5,21 @@
 package Models.HuffmanCode;
 
 //import java.util.Comparator;
-
 import java.util.Comparator;
-
 
 /**
  *
  * @author Willian Murayama
  */
-public class NodeComparator implements Comparator<NodeHuffman>{
-     public int compare(NodeHuffman x, NodeHuffman y) 
-    { 
-        return x.codigo - y.codigo; 
-    } 
+public class NodeComparator implements Comparator<NodeHuffman> {
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
+    public int compare(NodeHuffman x, NodeHuffman y) {
+        return x.codigo - y.codigo;
+    }
 }

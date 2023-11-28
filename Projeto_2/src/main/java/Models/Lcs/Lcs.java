@@ -12,7 +12,7 @@ public class Lcs {
 
     private String string_1;
     private String string_2;
-    private String resultado;
+    private String resultado = "";
     private int max;
 
     /**
@@ -30,13 +30,14 @@ public class Lcs {
      * @return int o tamanho da maior subsequencia
      */
     public int calcula(String string_a, String string_b, int len_string_a, int len_string_b) {
-//        Implementacao recursiva do LCS
+//Implementacao recursiva do LCS
 //Caso as strings sao vazias, retorna zero
         if (len_string_a == 0 || len_string_b == 0) {
             return 0;
         }
 //Caso as letras sejam iguais em dadas posicoes, retorna 1 mais o restante que sao iguais (recursao)
         if (string_a.charAt(len_string_a - 1) == string_b.charAt(len_string_b - 1)) {
+            resultado += string_a.charAt(len_string_a - 1);
             return 1 + calcula(string_a, string_b, len_string_a - 1, len_string_b - 1);
 //Caso acabe de analisar a string, retorna o maximo entre os dois
         } else {
