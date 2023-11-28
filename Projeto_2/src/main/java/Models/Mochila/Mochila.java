@@ -23,36 +23,30 @@ public class Mochila {
 
     public int max(int a, int b) { return (a > b) ? a : b; } 
     
-    public int knapSackRec(int W, int wt[], int val[],int n, int[][] dp) 
+    public int knapSackRec(int capacidadeMochila, int pesoItem[], int valorItem[],int quantidadeItem) 
     {
-        // Base condition 
-        if (n == 0 || W == 0) 
-            return 0;
-        if (dp[n][W] != -1) 
-            return dp[n][W];
-        if (wt[n - 1] > W)
-            // Store the value of function call 
-            // stack in table before return 
-            return dp[n][W] = knapSackRec(W, wt, val, n - 1, dp);
-        else
-            // Return value of table after storing 
-            return dp[n][W]= max((val[n - 1]+ knapSackRec(W - wt[n - 1], wt, val,n - 1, dp)),knapSackRec(W, wt, val, n - 1, dp)); 
-    } 
-
-    public int knapSack(int W, int wt[], int val[], int N) 
-    { 
-  
         // Declare the table dynamically 
-        int dp[][] = new int[N + 1][W + 1]; 
+        int tabela[][] = new int[quantidadeItem + 1][capacidadeMochila + 1]; 
   
         // Loop to initially filled the 
         // table with -1 
-        for (int i = 0; i < N + 1; i++) 
-            for (int j = 0; j < W + 1; j++) 
-                dp[i][j] = -1; 
-  
-        return knapSackRec(W, wt, val, N, dp); 
+        for (int i = 0; i < quantidadeItem + 1; i++) 
+            for (int j = 0; j < capacidadeMochila + 1; j++) 
+                tabela[i][j] = -1; 
+        // Base condition 
+        if (quantidadeItem == 0 || capacidadeMochila == 0) 
+            return 0;
+        if (tabela[quantidadeItem][capacidadeMochila] != -1) 
+            return tabela[quantidadeItem][capacidadeMochila];
+        if (pesoItem[quantidadeItem - 1] > capacidadeMochila)
+            // Store the value of function call 
+            // stack in table before return 
+            return tabela[quantidadeItem][capacidadeMochila] = knapSackRec(capacidadeMochila, pesoItem, valorItem, quantidadeItem - 1);
+        else
+            // Return value of table after storing 
+            return tabela[quantidadeItem][capacidadeMochila]= max((valorItem[quantidadeItem - 1]+ knapSackRec(capacidadeMochila - pesoItem[quantidadeItem - 1], pesoItem, valorItem,quantidadeItem - 1)),knapSackRec(capacidadeMochila, pesoItem, valorItem, quantidadeItem - 1)); 
     } 
+
     /**
      *
      * @return
