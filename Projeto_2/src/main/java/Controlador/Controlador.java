@@ -23,30 +23,58 @@ public class Controlador {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public static Controlador getInstance() {
         return instance;
     }
 
+    /**
+     *
+     * @return
+     */
     public Mochila getMochila() {
         return mochila;
     }
 
+    /**
+     *
+     * @param mochila
+     */
     public void setMochila(Mochila mochila) {
         this.mochila = mochila;
     }
 
+    /**
+     *
+     * @return
+     */
     public Huffman getHuffman() {
         return huffman;
     }
 
+    /**
+     *
+     * @param huffman
+     */
     public void setHuffman(Huffman huffman) {
         this.huffman = huffman;
     }
 
+    /**
+     *
+     * @return
+     */
     public Lcs getLcs() {
         return lcs;
     }
 
+    /**
+     *
+     * @param lcs
+     */
     public void setLcs(Lcs lcs) {
         this.lcs = lcs;
     }
