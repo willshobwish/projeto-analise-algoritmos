@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Mochila {
 
     private ArrayList<ItensMochila> itens = new ArrayList<>();
-    private int tamanho = 0;
+    private int tamanhoMochila = 0;
 
     /**
      *
@@ -21,12 +21,39 @@ public class Mochila {
     public Mochila() {
     }
 
+    // Returns the maximum value that 
+        // can be put in a knapsack of 
+        // capacity W 
+    public int knapSack(int capacidadeMochila, int pesoItem[], int valorItem[], int quantidadeItem) {
+        // Base Case 
+        if (quantidadeItem == 0 || capacidadeMochila == 0) {
+            return 0;
+        }
+    // If weight of the nth item is 
+    // more than Knapsack capacity W, 
+    // then this item cannot be included 
+    // in the optimal solution 
+    if (pesoItem[quantidadeItem - 1] > capacidadeMochila) {
+        return knapSack(capacidadeMochila, pesoItem, valorItem, quantidadeItem - 1);
+    } // Return the maximum of two cases: 
+    // (1) nth item included 
+    // (2) not included 
+    else {
+        return maximo(valorItem[quantidadeItem - 1]+ knapSack(capacidadeMochila - pesoItem[quantidadeItem - 1], pesoItem,valorItem, quantidadeItem - 1),knapSack(capacidadeMochila, pesoItem, valorItem, quantidadeItem - 1));
+    }}
+        
+    // A utility function that returns 
+    // maximum of two integers 
+    public int maximo(int a, int b) {
+        return (a > b) ? a : b;
+    }
+
     /**
      *
      * @return
      */
     public int getTamanho() {
-        return tamanho;
+        return tamanhoMochila;
     }
 
     /**
@@ -34,7 +61,7 @@ public class Mochila {
      * @param tamanho
      */
     public void setTamanho(int tamanho) {
-        this.tamanho = tamanho;
+        this.tamanhoMochila = tamanho;
     }
 
     /**
