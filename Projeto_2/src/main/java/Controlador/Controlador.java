@@ -4,9 +4,12 @@
  */
 package Controlador;
 
+import Models.FractionalKnapsack.FractionalKnapsack;
+import Models.FractionalKnapsack.ItemFractionalKnapsack;
 import Models.HuffmanCode.Huffman;
 import Models.Lcs.Lcs;
 import Models.Kanpsack.Knapsack;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +21,7 @@ public class Controlador {
     private Knapsack mochila = new Knapsack();
     private Huffman huffman = new Huffman();
     private Lcs lcs = new Lcs();
+    private FractionalKnapsack fractionalKnapsack = new FractionalKnapsack();
 
     private Controlador() {
 
@@ -30,7 +34,13 @@ public class Controlador {
     public static Controlador getInstance() {
         return instance;
     }
-
+    
+    public void addFractionalKnapsack(int valor, int peso){
+        ArrayList<ItemFractionalKnapsack> itens = fractionalKnapsack.getItens();
+        itens.add(new ItemFractionalKnapsack(valor, peso));
+        fractionalKnapsack.setItens(itens);
+    }
+    
     /**
      *
      * @return
