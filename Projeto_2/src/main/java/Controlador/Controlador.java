@@ -40,6 +40,18 @@ public class Controlador {
         itens.add(new ItemFractionalKnapsack(valor, peso));
         fractionalKnapsack.setItens(itens);
     }
+
+    public void setTamanhoFractionalKnapsack(int tamanho){
+        fractionalKnapsack.setCapacidadeMochila(tamanho);
+    }
+    
+    public FractionalKnapsack getFractionalKnapsack() {
+        return fractionalKnapsack;
+    }
+
+    public void setFractionalKnapsack(FractionalKnapsack fractionalKnapsack) {
+        this.fractionalKnapsack = fractionalKnapsack;
+    }
     
     /**
      *

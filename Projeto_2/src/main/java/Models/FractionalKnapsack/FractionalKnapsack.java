@@ -14,6 +14,8 @@ import java.util.Comparator;
  */
 public class FractionalKnapsack {
 
+    private int capacidadeMochila;
+    
     private ArrayList<ItemFractionalKnapsack> itens = new ArrayList<>();
 
     public FractionalKnapsack() {
@@ -33,16 +35,17 @@ public class FractionalKnapsack {
         double valorTotal = 0d;
         for (ItemFractionalKnapsack i : arr) {
             int pesoAtual = (int)i.getPeso();
-            int curVal = (int)i.getValor();
+            int valorAtual = (int)i.getValor();
             if (capacidadeMochila - pesoAtual >= 0) {
                 // This weight can be picked whole
                 capacidadeMochila = capacidadeMochila - pesoAtual;
-                valorTotal += curVal;
+                valorTotal += valorAtual;
             }
             else {
                 // Item cant be picked whole
                 double fraction = (double)capacidadeMochila / (double)pesoAtual;
-                valorTotal += (curVal * fraction);
+                i.setFracao(fraction);
+                valorTotal += (valorAtual * fraction);
                 capacidadeMochila = (int)(capacidadeMochila - (pesoAtual * fraction));
                 break;
             }
@@ -57,6 +60,14 @@ public class FractionalKnapsack {
 
     public void setItens(ArrayList<ItemFractionalKnapsack> itens) {
         this.itens = itens;
+    }
+
+    public int getCapacidadeMochila() {
+        return capacidadeMochila;
+    }
+
+    public void setCapacidadeMochila(int capacidadeMochila) {
+        this.capacidadeMochila = capacidadeMochila;
     }
 
 }
