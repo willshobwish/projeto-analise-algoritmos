@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Mochila {
 
     private ArrayList<ItensMochila> itens = new ArrayList<>();
-    private int tamanhoMochila = 0;
+    private int capacidadeMochila = 0;
 
     /**
      *
@@ -21,13 +21,23 @@ public class Mochila {
     public Mochila() {
     }
 
+      /**
+     *
+     * @param item
+     */
+    public void adicionarItem(ItensMochila item) {
+        itens.add(item);
+        System.out.println("Item %s adicionado na mochila".formatted(item.toString()));
+    }
+    
+   public int calcula(){
+       return knapSackRec(capacidadeMochila, itens.size());
+   }
     public int max(int a, int b) { return (a > b) ? a : b; } 
     
-    public int knapSackRec(int capacidadeMochila, int pesoItem[], int valorItem[],int quantidadeItem) 
-    {
+    public int knapSackRec(int capacidadeMochila, int quantidadeItem){
         // Declare the table dynamically 
-        int tabela[][] = new int[quantidadeItem + 1][capacidadeMochila + 1]; 
-  
+        int tabela[][] = new int[quantidadeItem + 1][capacidadeMochila + 1];
         // Loop to initially filled the 
         // table with -1 
         for (int i = 0; i < quantidadeItem + 1; i++) 
@@ -38,13 +48,14 @@ public class Mochila {
             return 0;
         if (tabela[quantidadeItem][capacidadeMochila] != -1) 
             return tabela[quantidadeItem][capacidadeMochila];
-        if (pesoItem[quantidadeItem - 1] > capacidadeMochila)
+//        if (pesoItem[quantidadeItem - 1] > capacidadeMochila)
+        if (itens.get(quantidadeItem-1).getPeso()> capacidadeMochila)
             // Store the value of function call 
             // stack in table before return 
-            return tabela[quantidadeItem][capacidadeMochila] = knapSackRec(capacidadeMochila, pesoItem, valorItem, quantidadeItem - 1);
+            return tabela[quantidadeItem][capacidadeMochila] = knapSackRec(capacidadeMochila, quantidadeItem - 1);
         else
             // Return value of table after storing 
-            return tabela[quantidadeItem][capacidadeMochila]= max((valorItem[quantidadeItem - 1]+ knapSackRec(capacidadeMochila - pesoItem[quantidadeItem - 1], pesoItem, valorItem,quantidadeItem - 1)),knapSackRec(capacidadeMochila, pesoItem, valorItem, quantidadeItem - 1)); 
+            return tabela[quantidadeItem][capacidadeMochila]= max((itens.get(quantidadeItem-1).getValor()+ knapSackRec(capacidadeMochila - itens.get(quantidadeItem-1).getPeso(), quantidadeItem - 1)),knapSackRec(capacidadeMochila, quantidadeItem - 1)); 
     } 
 
     /**
@@ -52,7 +63,7 @@ public class Mochila {
      * @return
      */
     public int getTamanho() {
-        return tamanhoMochila;
+        return capacidadeMochila;
     }
 
     /**
@@ -60,17 +71,10 @@ public class Mochila {
      * @param tamanho
      */
     public void setTamanho(int tamanho) {
-        this.tamanhoMochila = tamanho;
+        this.capacidadeMochila = tamanho;
     }
 
-    /**
-     *
-     * @param item
-     */
-    public void adicionarItem(ItensMochila item) {
-        itens.add(item);
-        System.out.println("Item %s adicionado na mochila".formatted(item.toString()));
-    }
+  
 
     /**
      *
