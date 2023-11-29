@@ -4,8 +4,8 @@
  */
 package Controlador;
 
-import Models.Mochila.ItensMochila;
-import Models.Mochila.Mochila;
+import Models.Kanpsack.ItensKnapsack;
+import Models.Kanpsack.Knapsack;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Main extends javax.swing.JFrame {
 
-    private Mochila mochila = new Mochila();
+    private Knapsack mochila = new Knapsack();
 
     /**
      * Creates new form Main
@@ -706,11 +706,11 @@ public class Main extends javax.swing.JFrame {
 
     private void adicionarItemMochilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarItemMochilaActionPerformed
         // TODO add your handling code here:
-        ItensMochila item = new ItensMochila(Integer.parseInt(PesoItemMochilaText.getText()),Integer.parseInt(valorItemMochilaText.getText()));
+        ItensKnapsack item = new ItensKnapsack(Integer.parseInt(PesoItemMochilaText.getText()),Integer.parseInt(valorItemMochilaText.getText()));
 //        mochila.adicionarItem(item);
         Controlador.getInstance().getMochila().adicionarItem(item);
         DefaultTableModel table = new DefaultTableModel(new Object[]{"Peso","Valor"}, 0);
-        for (ItensMochila i : Controlador.getInstance().getMochila().getItens()) {
+        for (ItensKnapsack i : Controlador.getInstance().getMochila().getItens()) {
             table.addRow(new Object[]{i.getPeso(), i.getValor()});
         }
         tableItensMochila.setModel(table);

@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Models.Mochila;
+package Models.Kanpsack;
 
 /**
  *
  * @author Willian Murayama
  */
-public class ItensMochila {
+public class ItensKnapsack {
 
     private int peso;
     private int valor;
@@ -18,7 +18,7 @@ public class ItensMochila {
      * @param peso
      * @param valor
      */
-    public ItensMochila(int peso, int valor) {
+    public ItensKnapsack(int peso, int valor) {
         this.peso = peso;
         this.valor = valor;
     }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Models.Mochila;
+package Models.Kanpsack;
 
 import java.util.ArrayList;
 
@@ -10,22 +10,22 @@ import java.util.ArrayList;
  *
  * @author Willian Murayama
  */
-public class Mochila {
+public class Knapsack {
 
-    private ArrayList<ItensMochila> itens = new ArrayList<>();
+    private ArrayList<ItensKnapsack> itens = new ArrayList<>();
     private int capacidadeMochila = 0;
 
     /**
      *
      */
-    public Mochila() {
+    public Knapsack() {
     }
 
       /**
      *
      * @param item
      */
-    public void adicionarItem(ItensMochila item) {
+    public void adicionarItem(ItensKnapsack item) {
         itens.add(item);
         System.out.println("Item %s adicionado na mochila".formatted(item.toString()));
     }
@@ -97,7 +97,7 @@ public class Mochila {
      *
      * @return
      */
-    public ArrayList<ItensMochila> getItens() {
+    public ArrayList<ItensKnapsack> getItens() {
         return itens;
     }
 
@@ -105,7 +105,7 @@ public class Mochila {
      *
      * @param itens
      */
-    public void setItens(ArrayList<ItensMochila> itens) {
+    public void setItens(ArrayList<ItensKnapsack> itens) {
         this.itens = itens;
     }
 

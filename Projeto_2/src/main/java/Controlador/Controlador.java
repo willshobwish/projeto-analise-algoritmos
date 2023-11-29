@@ -6,7 +6,7 @@ package Controlador;
 
 import Models.HuffmanCode.Huffman;
 import Models.Lcs.Lcs;
-import Models.Mochila.Mochila;
+import Models.Kanpsack.Knapsack;
 
 /**
  *
@@ -15,7 +15,7 @@ import Models.Mochila.Mochila;
 public class Controlador {
 
     private static final Controlador instance = new Controlador();
-    private Mochila mochila = new Mochila();
+    private Knapsack mochila = new Knapsack();
     private Huffman huffman = new Huffman();
     private Lcs lcs = new Lcs();
 
@@ -35,7 +35,7 @@ public class Controlador {
      *
      * @return
      */
-    public Mochila getMochila() {
+    public Knapsack getMochila() {
         return mochila;
     }
 
@@ -43,7 +43,7 @@ public class Controlador {
      *
      * @param mochila
      */
-    public void setMochila(Mochila mochila) {
+    public void setMochila(Knapsack mochila) {
         this.mochila = mochila;
     }
 
