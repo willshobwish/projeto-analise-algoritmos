@@ -93,6 +93,7 @@ public class Main extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Projeto e Analise de Algoritmos - Projeto 2");
 
         jLabel1.setText("Branch and bound");
 
@@ -274,6 +275,8 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1.addTab("Fractional Knapsack problem", FractionalKnapsackProblem);
 
         jLabel4.setText("Programação Dinâmica");
+
+        jPanel6.setToolTipText("");
 
         tableItensMochila.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -745,6 +748,7 @@ public class Main extends javax.swing.JFrame {
 //        mochila.setTamanho();
         labelTamanhoMochila.setText("Tamanho da mochila: " + Controlador.getInstance().getMochila().getTamanho());
         valorItemMochilaText.setText("0");
+        pesoMochilaText.setText("0");
     }//GEN-LAST:event_definirPesoMochilaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

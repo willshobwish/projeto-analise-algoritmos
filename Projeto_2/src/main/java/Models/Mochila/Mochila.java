@@ -30,11 +30,28 @@ public class Mochila {
         System.out.println("Item %s adicionado na mochila".formatted(item.toString()));
     }
     
-   public int calcula(){
+    /**
+     *
+     * @return
+     */
+    public int calcula(){
        return knapSackRec(capacidadeMochila, itens.size());
    }
+
+    /**
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public int max(int a, int b) { return (a > b) ? a : b; } 
     
+    /**
+     *
+     * @param capacidadeMochila
+     * @param quantidadeItem
+     * @return
+     */
     public int knapSackRec(int capacidadeMochila, int quantidadeItem){
         // Declare the table dynamically 
         int tabela[][] = new int[quantidadeItem + 1][capacidadeMochila + 1];
