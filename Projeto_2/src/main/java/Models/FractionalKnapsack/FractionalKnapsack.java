@@ -22,8 +22,7 @@ public class FractionalKnapsack {
     public double calcula(ItemFractionalKnapsack[] arr, int capacidadeMochila) {
         Arrays.sort(arr, new Comparator<ItemFractionalKnapsack>() {
             @Override
-            public int compare(ItemFractionalKnapsack item1,ItemFractionalKnapsack item2)
-            {
+            public int compare(ItemFractionalKnapsack item1,ItemFractionalKnapsack item2){
                 double comparacao1= (double)item1.getValor()/(double)item1.getPeso();
                 double comparacao2= (double)item2.getValor()/(double)item2.getPeso();
                 if (comparacao1 < comparacao2)
@@ -42,7 +41,7 @@ public class FractionalKnapsack {
             }
             else {
                 // Item cant be picked whole
-                double fraction = ((double)capacidadeMochila / (double)pesoAtual);
+                double fraction = (double)capacidadeMochila / (double)pesoAtual;
                 valorTotal += (curVal * fraction);
                 capacidadeMochila = (int)(capacidadeMochila - (pesoAtual * fraction));
                 break;

@@ -11,6 +11,7 @@ package Models.FractionalKnapsack;
 public class ItemFractionalKnapsack {
     private int valor;
     private int peso;
+    private double fracao;
 
     public ItemFractionalKnapsack(int valor, int peso) {
         this.valor = valor;
@@ -31,6 +32,14 @@ public class ItemFractionalKnapsack {
 
     public void setPeso(int peso) {
         this.peso = peso;
+    }
+
+    public double getFracao() {
+        return fracao;
+    }
+
+    public void setFracao(double fracao) {
+        this.fracao = fracao;
     }
     
 }
