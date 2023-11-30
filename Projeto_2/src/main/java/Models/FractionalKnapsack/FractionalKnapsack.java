@@ -29,6 +29,7 @@ public class FractionalKnapsack {
     }
 
     public double recursiveFractionalKnapsack(int capacidadeMochila) {
+//        Implementacao de um comparador para organizar o arraylist
         Collections.sort(itens, new Comparator<ItemFractionalKnapsack>() {
             @Override
             public int compare(ItemFractionalKnapsack item1, ItemFractionalKnapsack item2) {
@@ -41,21 +42,22 @@ public class FractionalKnapsack {
                 }
             }
         });
-        double valorTotal = 0d;
-        for (ItemFractionalKnapsack i : itens) {
-            int pesoAtual = (int) i.getPeso();
-            int valorAtual = (int) i.getValor();
+        double valorTotal = 0;
+        for (ItemFractionalKnapsack item : itens) {
+            int pesoAtual = (int) item.getPeso();
+            int valorAtual = (int) item.getValor();
             if (capacidadeMochila - pesoAtual >= 0) {
-                // This weight can be picked whole
+//                O item pode ser pego por completo
                 capacidadeMochila = capacidadeMochila - pesoAtual;
                 valorTotal += valorAtual;
-                i.setFracao(1);
+                item.setFracao(1);
             } else {
-                // Item cant be picked whole
-                double fraction = (double) capacidadeMochila / (double) pesoAtual;
-                i.setFracao(fraction);
-                valorTotal += (valorAtual * fraction);
-                capacidadeMochila = (int) (capacidadeMochila - (pesoAtual * fraction));
+//                Senao, sera possivel pegar apenas uma porcao do item
+                double fracao = (double) capacidadeMochila / (double) pesoAtual;
+//                Determina a fracao no item para ser exibido
+                item.setFracao(fracao);
+                valorTotal += (valorAtual * fracao);
+                capacidadeMochila = (int) (capacidadeMochila - (pesoAtual * fracao));
                 break;
             }
         }
