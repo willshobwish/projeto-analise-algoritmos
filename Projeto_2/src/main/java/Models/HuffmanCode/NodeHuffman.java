@@ -10,10 +10,41 @@ package Models.HuffmanCode;
  */
 public class NodeHuffman {
 
-    int codigo;
-    char caractere;
+    private int data;
+    private char c;
+    private NodeHuffman left;
+    private NodeHuffman right;
 
-    NodeHuffman esquerda;
-    NodeHuffman direira;
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public char getC() {
+        return c;
+    }
+
+    public void setC(char c) {
+        this.c = c;
+    }
+
+    public NodeHuffman getLeft() {
+        return left;
+    }
+
+    public void setLeft(NodeHuffman left) {
+        this.left = left;
+    }
+
+    public NodeHuffman getRight() {
+        return right;
+    }
+
+    public void setRight(NodeHuffman right) {
+        this.right = right;
+    }
 
 }
