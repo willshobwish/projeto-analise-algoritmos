@@ -15,34 +15,66 @@ public class NodeHuffman {
     private NodeHuffman left;
     private NodeHuffman right;
 
+    /**
+     *
+     * @return
+     */
     public int getData() {
         return data;
     }
 
+    /**
+     *
+     * @param data
+     */
     public void setData(int data) {
         this.data = data;
     }
 
+    /**
+     *
+     * @return
+     */
     public char getC() {
         return c;
     }
 
+    /**
+     *
+     * @param c
+     */
     public void setC(char c) {
         this.c = c;
     }
 
+    /**
+     *
+     * @return
+     */
     public NodeHuffman getLeft() {
         return left;
     }
 
+    /**
+     *
+     * @param left
+     */
     public void setLeft(NodeHuffman left) {
         this.left = left;
     }
 
+    /**
+     *
+     * @return
+     */
     public NodeHuffman getRight() {
         return right;
     }
 
+    /**
+     *
+     * @param right
+     */
     public void setRight(NodeHuffman right) {
         this.right = right;
     }

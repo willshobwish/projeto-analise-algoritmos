@@ -13,6 +13,12 @@ import java.util.Comparator;
  */
 public class NodeComparator implements Comparator<NodeHuffman> {
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public int compare(NodeHuffman x, NodeHuffman y) {
 
         return x.getData() - y.getData();

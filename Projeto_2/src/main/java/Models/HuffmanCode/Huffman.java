@@ -13,6 +13,9 @@ import java.util.Scanner;
  */
 public class Huffman {
 
+    /**
+     *
+     */
     public void calcula() {
         Scanner s = new Scanner(System.in);
 
@@ -84,6 +87,11 @@ public class Huffman {
         printCode(root, "");
     }
 
+    /**
+     *
+     * @param root
+     * @param s
+     */
     public void printCode(NodeHuffman root, String s) {
         // base case; if the left and right are null
         // then its a leaf node and we print
