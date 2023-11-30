@@ -18,9 +18,16 @@ public class FractionalKnapsack {
 
     private ArrayList<ItemFractionalKnapsack> itens = new ArrayList<>();
 
+    /**
+     *
+     */
     public FractionalKnapsack() {
     }
 
+    /**
+     *
+     * @return
+     */
     public double calcula() {
         for (ItemFractionalKnapsack i : itens) {
             i.setFracao(0);
@@ -28,6 +35,11 @@ public class FractionalKnapsack {
         return recursiveFractionalKnapsack(capacidadeMochila);
     }
 
+    /**
+     *
+     * @param capacidadeMochila
+     * @return
+     */
     public double recursiveFractionalKnapsack(int capacidadeMochila) {
 //        Implementacao de um comparador para organizar o arraylist
         Collections.sort(itens, new Comparator<ItemFractionalKnapsack>() {
@@ -64,18 +76,34 @@ public class FractionalKnapsack {
         return valorTotal;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<ItemFractionalKnapsack> getItens() {
         return itens;
     }
 
+    /**
+     *
+     * @param itens
+     */
     public void setItens(ArrayList<ItemFractionalKnapsack> itens) {
         this.itens = itens;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCapacidadeMochila() {
         return capacidadeMochila;
     }
 
+    /**
+     *
+     * @param capacidadeMochila
+     */
     public void setCapacidadeMochila(int capacidadeMochila) {
         this.capacidadeMochila = capacidadeMochila;
     }
