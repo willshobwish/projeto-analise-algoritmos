@@ -35,7 +35,7 @@ public class Knapsack {
      * @return
      */
     public int calcula(){
-       return knapSackRec(capacidadeMochila, itens.size());
+       return knapsackRecursivo(capacidadeMochila, itens.size());
    }
 
     /**
@@ -52,7 +52,7 @@ public class Knapsack {
      * @param quantidadeItem
      * @return
      */
-    public int knapSackRec(int capacidadeMochila, int quantidadeItem){
+    public int knapsackRecursivo(int capacidadeMochila, int quantidadeItem){
         // Declare the table dynamically 
         int tabela[][] = new int[quantidadeItem + 1][capacidadeMochila + 1];
         // Loop to initially filled the 
@@ -69,10 +69,10 @@ public class Knapsack {
         if (itens.get(quantidadeItem-1).getPeso()> capacidadeMochila)
             // Store the value of function call 
             // stack in table before return 
-            return tabela[quantidadeItem][capacidadeMochila] = knapSackRec(capacidadeMochila, quantidadeItem - 1);
+            return tabela[quantidadeItem][capacidadeMochila] = knapsackRecursivo(capacidadeMochila, quantidadeItem - 1);
         else
             // Return value of table after storing 
-            return tabela[quantidadeItem][capacidadeMochila]= max((itens.get(quantidadeItem-1).getValor()+ knapSackRec(capacidadeMochila - itens.get(quantidadeItem-1).getPeso(), quantidadeItem - 1)),knapSackRec(capacidadeMochila, quantidadeItem - 1)); 
+            return tabela[quantidadeItem][capacidadeMochila]= max((itens.get(quantidadeItem-1).getValor()+ knapsackRecursivo(capacidadeMochila - itens.get(quantidadeItem-1).getPeso(), quantidadeItem - 1)),knapsackRecursivo(capacidadeMochila, quantidadeItem - 1)); 
     } 
 
     /**

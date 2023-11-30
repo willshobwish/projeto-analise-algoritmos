@@ -35,26 +35,46 @@ public class Controlador {
         return instance;
     }
 
+    /**
+     *
+     * @param valor
+     * @param peso
+     */
     public void addFractionalKnapsack(int valor, int peso) {
         ArrayList<ItemFractionalKnapsack> itens = fractionalKnapsack.getItens();
         itens.add(new ItemFractionalKnapsack(valor, peso));
         fractionalKnapsack.setItens(itens);
     }
 
+    /**
+     *
+     */
     public void removeFractionalKnapsack() {
         ArrayList<ItemFractionalKnapsack> itens = fractionalKnapsack.getItens();
         itens.removeLast();
         fractionalKnapsack.setItens(itens);
     }
 
+    /**
+     *
+     * @param tamanho
+     */
     public void setTamanhoFractionalKnapsack(int tamanho) {
         fractionalKnapsack.setCapacidadeMochila(tamanho);
     }
 
+    /**
+     *
+     * @return
+     */
     public FractionalKnapsack getFractionalKnapsack() {
         return fractionalKnapsack;
     }
 
+    /**
+     *
+     * @param fractionalKnapsack
+     */
     public void setFractionalKnapsack(FractionalKnapsack fractionalKnapsack) {
         this.fractionalKnapsack = fractionalKnapsack;
     }
