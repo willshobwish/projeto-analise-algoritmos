@@ -22,6 +22,13 @@ public class FractionalKnapsack {
     }
 
     public double calcula() {
+        for (ItemFractionalKnapsack i : itens) {
+            i.setFracao(0);
+        }
+        return recursiveFractionalKnapsack(capacidadeMochila);
+    }
+
+    public double recursiveFractionalKnapsack(int capacidadeMochila) {
         Collections.sort(itens, new Comparator<ItemFractionalKnapsack>() {
             @Override
             public int compare(ItemFractionalKnapsack item1, ItemFractionalKnapsack item2) {

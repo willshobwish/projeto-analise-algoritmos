@@ -218,6 +218,7 @@ public class Main extends javax.swing.JFrame {
                 "Peso", "Valor", "Proporção"
             }
         ));
+        jTable3.setFocusable(false);
         jScrollPane2.setViewportView(jTable3);
 
         jLabel3.setText("Peso");
@@ -347,7 +348,7 @@ public class Main extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -359,12 +360,12 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout FractionalKnapsackProblemLayout = new javax.swing.GroupLayout(FractionalKnapsackProblem);
@@ -877,8 +878,9 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Controlador.getInstance().addFractionalKnapsack(Integer.parseInt(pesoFractionalKnapsack.getText()), Integer.parseInt(valorFractionalKnapsack.getText()));
-
+        Controlador.getInstance().addFractionalKnapsack(Integer.parseInt(valorFractionalKnapsack.getText()), Integer.parseInt(pesoFractionalKnapsack.getText()));
+        pesoFractionalKnapsack.setText("0");
+        valorFractionalKnapsack.setText("0");
         DefaultTableModel table = new DefaultTableModel(new Object[]{"Peso", "Valor", "Proporção"}, 0);
         for (ItemFractionalKnapsack i : Controlador.getInstance().getFractionalKnapsack().getItens()) {
             table.addRow(new Object[]{i.getPeso(), i.getValor(), i.getFracao()});
@@ -908,7 +910,12 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-
+        Controlador.getInstance().removeFractionalKnapsack();
+        DefaultTableModel table = new DefaultTableModel(new Object[]{"Peso", "Valor", "Proporção"}, 0);
+        for (ItemFractionalKnapsack i : Controlador.getInstance().getFractionalKnapsack().getItens()) {
+            table.addRow(new Object[]{i.getPeso(), i.getValor(), i.getFracao()});
+        }
+        jTable3.setModel(table);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tableToString() {
