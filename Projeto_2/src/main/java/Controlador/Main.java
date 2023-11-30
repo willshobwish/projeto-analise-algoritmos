@@ -59,6 +59,8 @@ public class Main extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         KnapsackProblem = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -234,8 +236,18 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton2.setText("Remover");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Calcular");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -279,6 +291,11 @@ public class Main extends javax.swing.JFrame {
         jLabel15.setText("Tamanho da mochila: ");
 
         jTextField2.setText("0");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Definir");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -286,6 +303,11 @@ public class Main extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+
+        jLabel16.setText("Valor total");
+
+        jTextField3.setText("0");
+        jTextField3.setFocusable(false);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -297,15 +319,23 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField2)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -786,10 +816,10 @@ public class Main extends javax.swing.JFrame {
 
     private void adicionarItemMochilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarItemMochilaActionPerformed
         // TODO add your handling code here:
-        ItensKnapsack item = new ItensKnapsack(Integer.parseInt(PesoItemMochilaText.getText()),Integer.parseInt(valorItemMochilaText.getText()));
+        ItensKnapsack item = new ItensKnapsack(Integer.parseInt(PesoItemMochilaText.getText()), Integer.parseInt(valorItemMochilaText.getText()));
 //        mochila.adicionarItem(item);
         Controlador.getInstance().getMochila().adicionarItem(item);
-        DefaultTableModel table = new DefaultTableModel(new Object[]{"Peso","Valor"}, 0);
+        DefaultTableModel table = new DefaultTableModel(new Object[]{"Peso", "Valor"}, 0);
         for (ItensKnapsack i : Controlador.getInstance().getMochila().getItens()) {
             table.addRow(new Object[]{i.getPeso(), i.getValor()});
         }
@@ -848,10 +878,10 @@ public class Main extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Controlador.getInstance().addFractionalKnapsack(Integer.parseInt(pesoFractionalKnapsack.getText()), Integer.parseInt(valorFractionalKnapsack.getText()));
-        
-        DefaultTableModel table = new DefaultTableModel(new Object[]{"Peso","Valor","Proporção"}, 0);
+
+        DefaultTableModel table = new DefaultTableModel(new Object[]{"Peso", "Valor", "Proporção"}, 0);
         for (ItemFractionalKnapsack i : Controlador.getInstance().getFractionalKnapsack().getItens()) {
-            table.addRow(new Object[]{i.getPeso(), i.getValor(),i.getFracao()});
+            table.addRow(new Object[]{i.getPeso(), i.getValor(), i.getFracao()});
         }
         jTable3.setModel(table);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -859,8 +889,27 @@ public class Main extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         Controlador.getInstance().setTamanhoFractionalKnapsack(Integer.parseInt(jTextField2.getText()));
-        jLabel15.setText("Tamanho da mochila: "+Controlador.getInstance().getFractionalKnapsack().getCapacidadeMochila());
+        jLabel15.setText("Tamanho da mochila: " + Controlador.getInstance().getFractionalKnapsack().getCapacidadeMochila());
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jTextField3.setText(Double.toString(Controlador.getInstance().getFractionalKnapsack().calcula()));
+        DefaultTableModel table = new DefaultTableModel(new Object[]{"Peso", "Valor", "Proporção"}, 0);
+        for (ItemFractionalKnapsack i : Controlador.getInstance().getFractionalKnapsack().getItens()) {
+            table.addRow(new Object[]{i.getPeso(), i.getValor(), i.getFracao()});
+        }
+        jTable3.setModel(table);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tableToString() {
         for (int row = 0; row < jTable1.getRowCount(); row++) {
@@ -931,6 +980,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -963,6 +1013,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel labelTamanhoMochila;
     private javax.swing.JTextField pesoFractionalKnapsack;

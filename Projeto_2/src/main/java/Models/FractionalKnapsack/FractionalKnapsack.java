@@ -5,7 +5,7 @@
 package Models.FractionalKnapsack;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -15,45 +15,46 @@ import java.util.Comparator;
 public class FractionalKnapsack {
 
     private int capacidadeMochila;
-    
+
     private ArrayList<ItemFractionalKnapsack> itens = new ArrayList<>();
 
     public FractionalKnapsack() {
     }
 
-    public double calcula(ItemFractionalKnapsack[] arr, int capacidadeMochila) {
-        Arrays.sort(arr, new Comparator<ItemFractionalKnapsack>() {
+    public double calcula() {
+        Collections.sort(itens, new Comparator<ItemFractionalKnapsack>() {
             @Override
-            public int compare(ItemFractionalKnapsack item1,ItemFractionalKnapsack item2){
-                double comparacao1= (double)item1.getValor()/(double)item1.getPeso();
-                double comparacao2= (double)item2.getValor()/(double)item2.getPeso();
-                if (comparacao1 < comparacao2)
+            public int compare(ItemFractionalKnapsack item1, ItemFractionalKnapsack item2) {
+                double comparacao1 = (double) item1.getValor() / (double) item1.getPeso();
+                double comparacao2 = (double) item2.getValor() / (double) item2.getPeso();
+                if (comparacao1 < comparacao2) {
                     return 1;
-                else
+                } else {
                     return -1;
-            }});
+                }
+            }
+        });
         double valorTotal = 0d;
-        for (ItemFractionalKnapsack i : arr) {
-            int pesoAtual = (int)i.getPeso();
-            int valorAtual = (int)i.getValor();
+        for (ItemFractionalKnapsack i : itens) {
+            int pesoAtual = (int) i.getPeso();
+            int valorAtual = (int) i.getValor();
             if (capacidadeMochila - pesoAtual >= 0) {
                 // This weight can be picked whole
                 capacidadeMochila = capacidadeMochila - pesoAtual;
                 valorTotal += valorAtual;
-            }
-            else {
+                i.setFracao(1);
+            } else {
                 // Item cant be picked whole
-                double fraction = (double)capacidadeMochila / (double)pesoAtual;
+                double fraction = (double) capacidadeMochila / (double) pesoAtual;
                 i.setFracao(fraction);
                 valorTotal += (valorAtual * fraction);
-                capacidadeMochila = (int)(capacidadeMochila - (pesoAtual * fraction));
+                capacidadeMochila = (int) (capacidadeMochila - (pesoAtual * fraction));
                 break;
             }
         }
         return valorTotal;
     }
 
-    
     public ArrayList<ItemFractionalKnapsack> getItens() {
         return itens;
     }
