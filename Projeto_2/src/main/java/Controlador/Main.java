@@ -941,6 +941,7 @@ public class Main extends javax.swing.JFrame {
 //            i.getCaractere()
         }
         jTable2.setModel(table);
+        jTextArea3.setText(Controlador.getInstance().getHuffman().getTextoCodificado(jTextArea2.getText()));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tableToString() {
