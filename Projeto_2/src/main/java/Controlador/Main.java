@@ -7,8 +7,8 @@ package Controlador;
 import Models.FractionalKnapsack.ItemFractionalKnapsack;
 import Models.HuffmanCode.LetterHuffman;
 import Models.HuffmanCode.NodeHuffman;
-import Models.Kanpsack.ItensKnapsack;
-import Models.Kanpsack.Knapsack;
+import Models.Knapsack.ItensKnapsack;
+import Models.Knapsack.Knapsack;
 import javax.swing.table.DefaultTableModel;
 
 /**

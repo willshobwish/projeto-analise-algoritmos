@@ -8,7 +8,7 @@ import Models.FractionalKnapsack.FractionalKnapsack;
 import Models.FractionalKnapsack.ItemFractionalKnapsack;
 import Models.HuffmanCode.Huffman;
 import Models.LongestCommonSubsequence.LongestCommonSubsequence;
-import Models.Kanpsack.Knapsack;
+import Models.Knapsack.Knapsack;
 import java.util.ArrayList;
 
 /**
