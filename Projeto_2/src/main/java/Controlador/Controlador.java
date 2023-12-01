@@ -7,7 +7,7 @@ package Controlador;
 import Models.FractionalKnapsack.FractionalKnapsack;
 import Models.FractionalKnapsack.ItemFractionalKnapsack;
 import Models.HuffmanCode.Huffman;
-import Models.Lcs.Lcs;
+import Models.LongestCommonSubsequence.LongestCommonSubsequence;
 import Models.Kanpsack.Knapsack;
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class Controlador {
     private static final Controlador instance = new Controlador();
     private Knapsack mochila = new Knapsack();
     private Huffman huffman = new Huffman();
-    private Lcs lcs = new Lcs();
+    private LongestCommonSubsequence lcs = new LongestCommonSubsequence();
     private FractionalKnapsack fractionalKnapsack = new FractionalKnapsack();
 
     private Controlador() {
@@ -119,7 +119,7 @@ public class Controlador {
      *
      * @return
      */
-    public Lcs getLcs() {
+    public LongestCommonSubsequence getLcs() {
         return lcs;
     }
 
@@ -127,7 +127,7 @@ public class Controlador {
      *
      * @param lcs
      */
-    public void setLcs(Lcs lcs) {
+    public void setLcs(LongestCommonSubsequence lcs) {
         this.lcs = lcs;
     }
 

@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Models.Lcs;
+package Models.LongestCommonSubsequence;
 
 /**
  *
  * @author Willian Murayama
  */
-public class Lcs {
+public class LongestCommonSubsequence {
 
     private String string_1;
     private String string_2;
@@ -18,7 +18,7 @@ public class Lcs {
     /**
      *
      */
-    public Lcs() {
+    public LongestCommonSubsequence() {
     }
 
     /**
