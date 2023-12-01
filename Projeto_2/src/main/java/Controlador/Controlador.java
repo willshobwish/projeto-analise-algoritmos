@@ -55,6 +55,10 @@ public class Controlador {
         fractionalKnapsack.setItens(itens);
     }
 
+    public void sliceTextHuffman(String text) {
+        huffman.slice(text);
+    }
+
     /**
      *
      * @param tamanho

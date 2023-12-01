@@ -5,6 +5,8 @@
 package Controlador;
 
 import Models.FractionalKnapsack.ItemFractionalKnapsack;
+import Models.HuffmanCode.LetterHuffman;
+import Models.HuffmanCode.NodeHuffman;
 import Models.Kanpsack.ItensKnapsack;
 import Models.Kanpsack.Knapsack;
 import javax.swing.table.DefaultTableModel;
@@ -161,7 +163,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 968, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 937, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(adicionarTarefas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -536,7 +538,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(pesoMochilaText, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(definirPesoMochila, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 669, Short.MAX_VALUE))))
+                        .addGap(0, 638, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,7 +610,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
                             .addComponent(calculaLcs, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(804, Short.MAX_VALUE))
+                        .addContainerGap(773, Short.MAX_VALUE))
                     .addComponent(textString2)))
         );
         jPanel5Layout.setVerticalGroup(
@@ -684,13 +686,20 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setText("Algoritmo guloso");
 
         jTextArea3.setColumns(20);
+        jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
         jTextArea3.setFocusable(false);
         jScrollPane6.setViewportView(jTextArea3);
 
         jButton3.setText("Codificar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jScrollPane5.setViewportView(jTextArea2);
 
@@ -701,7 +710,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -714,9 +723,9 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addComponent(jScrollPane5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -725,7 +734,7 @@ public class Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Caractere", "Código"
+                "Caractere", "Código", "Frequência"
             }
         ));
         jScrollPane7.setViewportView(jTable2);
@@ -734,11 +743,15 @@ public class Main extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout CodificacaoHuffmanLayout = new javax.swing.GroupLayout(CodificacaoHuffman);
@@ -750,12 +763,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(CodificacaoHuffmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CodificacaoHuffmanLayout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CodificacaoHuffmanLayout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         CodificacaoHuffmanLayout.setVerticalGroup(
             CodificacaoHuffmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -766,7 +778,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(CodificacaoHuffmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Codificação de Huffman", CodificacaoHuffman);
@@ -776,7 +788,7 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
@@ -919,6 +931,17 @@ public class Main extends javax.swing.JFrame {
         }
         jTable3.setModel(table);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        Controlador.getInstance().sliceTextHuffman(jTextArea2.getText());
+        DefaultTableModel table = new DefaultTableModel(new Object[]{"Caractere", "Código", "Frequência"}, 0);
+        for (LetterHuffman i : Controlador.getInstance().getHuffman().getLetrasCodificado()) {
+            table.addRow(new Object[]{i.getCaractere(), i.getCodigo(), i.getFrequencia()});
+//            i.getCaractere()
+        }
+        jTable2.setModel(table);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tableToString() {
         for (int row = 0; row < jTable1.getRowCount(); row++) {

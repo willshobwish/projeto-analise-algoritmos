@@ -11,7 +11,8 @@ package Models.HuffmanCode;
 public class NodeHuffman {
 
     private int data;
-    private char c;
+    private String code;
+    private char caractere;
     private NodeHuffman left;
     private NodeHuffman right;
 
@@ -29,22 +30,6 @@ public class NodeHuffman {
      */
     public void setData(int data) {
         this.data = data;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public char getC() {
-        return c;
-    }
-
-    /**
-     *
-     * @param c
-     */
-    public void setC(char c) {
-        this.c = c;
     }
 
     /**
@@ -77,6 +62,22 @@ public class NodeHuffman {
      */
     public void setRight(NodeHuffman right) {
         this.right = right;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public char getCaractere() {
+        return caractere;
+    }
+
+    public void setCaractere(char caractere) {
+        this.caractere = caractere;
     }
 
 }
