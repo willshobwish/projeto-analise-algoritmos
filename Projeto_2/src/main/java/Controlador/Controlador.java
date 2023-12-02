@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Models.AssignmentProblem.AssignmentProblem;
 import Models.FractionalKnapsack.FractionalKnapsack;
 import Models.FractionalKnapsack.ItemFractionalKnapsack;
 import Models.HuffmanCode.Huffman;
@@ -22,6 +23,7 @@ public class Controlador {
     private Huffman huffman = new Huffman();
     private LongestCommonSubsequence lcs = new LongestCommonSubsequence();
     private FractionalKnapsack fractionalKnapsack = new FractionalKnapsack();
+    private AssignmentProblem assignmentProblem = new AssignmentProblem();
 
     private Controlador() {
 
@@ -129,6 +131,14 @@ public class Controlador {
      */
     public void setLcs(LongestCommonSubsequence lcs) {
         this.lcs = lcs;
+    }
+
+    public AssignmentProblem getAssignmentProblem() {
+        return assignmentProblem;
+    }
+
+    public void setAssignmentProblem(AssignmentProblem assignmentProblem) {
+        this.assignmentProblem = assignmentProblem;
     }
 
 }

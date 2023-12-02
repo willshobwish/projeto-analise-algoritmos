@@ -980,6 +980,7 @@ public class Main extends javax.swing.JFrame {
 
     private void removerPessoas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerPessoas1ActionPerformed
         // TODO add your handling code here:
+        Controlador.getInstance().getAssignmentProblem().main();
     }//GEN-LAST:event_removerPessoas1ActionPerformed
 
     private void tableToString() {
