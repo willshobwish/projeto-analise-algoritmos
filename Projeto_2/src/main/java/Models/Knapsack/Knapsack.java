@@ -21,7 +21,7 @@ public class Knapsack {
     public Knapsack() {
     }
 
-      /**
+    /**
      *
      * @param item
      */
@@ -29,14 +29,17 @@ public class Knapsack {
         itens.add(item);
         System.out.println("Item %s adicionado na mochila".formatted(item.toString()));
     }
-    
+
     /**
      *
      * @return
      */
-    public int calcula(){
-       return knapsackRecursivo(capacidadeMochila, itens.size());
-   }
+    public int calcula() {
+for(ItensKnapsack i:itens){
+    i.setSelecionado(false);
+}
+        return knapsackRecursivo(capacidadeMochila, itens.size());
+    }
 
     /**
      *
@@ -44,36 +47,47 @@ public class Knapsack {
      * @param b
      * @return
      */
-    public int max(int a, int b) { return (a > b) ? a : b; } 
-    
+    public int max(int a, int b) {
+        return (a > b) ? a : b;
+    }
+
     /**
      *
      * @param capacidadeMochila
      * @param quantidadeItem
      * @return
      */
-    public int knapsackRecursivo(int capacidadeMochila, int quantidadeItem){
+    public int knapsackRecursivo(int capacidadeMochila, int quantidadeItem) {
         // Declare the table dynamically 
         int tabela[][] = new int[quantidadeItem + 1][capacidadeMochila + 1];
-        // Loop to initially filled the 
+// Loop to initially filled the 
         // table with -1 
-        for (int i = 0; i < quantidadeItem + 1; i++) 
-            for (int j = 0; j < capacidadeMochila + 1; j++) 
-                tabela[i][j] = -1; 
+        for (int i = 0; i < quantidadeItem + 1; i++) {
+            for (int j = 0; j < capacidadeMochila + 1; j++) {
+                tabela[i][j] = -1;
+            }
+        }
         // Base condition 
-        if (quantidadeItem == 0 || capacidadeMochila == 0) 
+        if (quantidadeItem == 0 || capacidadeMochila == 0) {
             return 0;
-        if (tabela[quantidadeItem][capacidadeMochila] != -1) 
+        }
+        if (tabela[quantidadeItem][capacidadeMochila] != -1) {
             return tabela[quantidadeItem][capacidadeMochila];
+        }
 //        if (pesoItem[quantidadeItem - 1] > capacidadeMochila)
-        if (itens.get(quantidadeItem-1).getPeso()> capacidadeMochila)
+        if (itens.get(quantidadeItem - 1).getPeso() > capacidadeMochila) {
             // Store the value of function call 
             // stack in table before return 
+            itens.get(quantidadeItem-1).setSelecionado(true);
+
             return tabela[quantidadeItem][capacidadeMochila] = knapsackRecursivo(capacidadeMochila, quantidadeItem - 1);
-        else
+        } else {
             // Return value of table after storing 
-            return tabela[quantidadeItem][capacidadeMochila]= max((itens.get(quantidadeItem-1).getValor()+ knapsackRecursivo(capacidadeMochila - itens.get(quantidadeItem-1).getPeso(), quantidadeItem - 1)),knapsackRecursivo(capacidadeMochila, quantidadeItem - 1)); 
-    } 
+            itens.get(quantidadeItem-1).setSelecionado(false);
+
+            return tabela[quantidadeItem][capacidadeMochila] = max((itens.get(quantidadeItem - 1).getValor() + knapsackRecursivo(capacidadeMochila - itens.get(quantidadeItem - 1).getPeso(), quantidadeItem - 1)), knapsackRecursivo(capacidadeMochila, quantidadeItem - 1));
+        }
+    }
 
     /**
      *
@@ -90,8 +104,6 @@ public class Knapsack {
     public void setTamanho(int tamanho) {
         this.capacidadeMochila = tamanho;
     }
-
-  
 
     /**
      *

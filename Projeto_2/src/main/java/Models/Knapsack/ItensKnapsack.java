@@ -12,7 +12,7 @@ public class ItensKnapsack {
 
     private int peso;
     private int valor;
-
+    private boolean selecionado;
     /**
      *
      * @param peso
@@ -53,6 +53,14 @@ public class ItensKnapsack {
      */
     public void setValor(int valor) {
         this.valor = valor;
+    }
+
+    public boolean isSelecionado() {
+        return selecionado;
+    }
+
+    public void setSelecionado(boolean selecionado) {
+        this.selecionado = selecionado;
     }
 
     /**
