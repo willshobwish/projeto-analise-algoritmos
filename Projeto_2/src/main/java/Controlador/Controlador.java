@@ -57,6 +57,10 @@ public class Controlador {
         fractionalKnapsack.setItens(itens);
     }
 
+    /**
+     *
+     * @param text
+     */
     public void sliceTextHuffman(String text) {
         huffman.slice(text);
     }
@@ -133,10 +137,18 @@ public class Controlador {
         this.lcs = lcs;
     }
 
+    /**
+     *
+     * @return
+     */
     public AssignmentProblem getAssignmentProblem() {
         return assignmentProblem;
     }
 
+    /**
+     *
+     * @param assignmentProblem
+     */
     public void setAssignmentProblem(AssignmentProblem assignmentProblem) {
         this.assignmentProblem = assignmentProblem;
     }

@@ -11,18 +11,18 @@ package Models.AssignmentProblem;
 public class Node {
 
     Node parent;
-    int pathCost;
-    int cost;
-    int workerID;
+    int custoCaminho;
+    int custo;
+    int identificacao;
     int jobID;
     boolean[] assigned;
-    int N = 4;
 
-    Node(int x, int y, boolean[] assigned, Node parent) {
+    Node(int x, int y, boolean[] assigned, Node parent, int quantidadeTrabalho) {
         this.parent = parent;
-        this.assigned = new boolean[N];
-        System.arraycopy(assigned, 0, this.assigned, 0, N);
-        this.workerID = x;
+        this.assigned = new boolean[quantidadeTrabalho];  // Corrected line
+        System.arraycopy(assigned, 0, this.assigned, 0, quantidadeTrabalho);
+        this.assigned[y] = true;
+        this.identificacao = x;
         this.jobID = y;
     }
 }

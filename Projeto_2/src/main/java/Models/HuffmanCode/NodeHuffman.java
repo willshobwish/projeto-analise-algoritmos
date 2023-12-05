@@ -64,18 +64,34 @@ public class NodeHuffman {
         this.right = right;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCode() {
         return code;
     }
 
+    /**
+     *
+     * @param code
+     */
     public void setCode(String code) {
         this.code = code;
     }
 
+    /**
+     *
+     * @return
+     */
     public char getCaractere() {
         return caractere;
     }
 
+    /**
+     *
+     * @param caractere
+     */
     public void setCaractere(char caractere) {
         this.caractere = caractere;
     }

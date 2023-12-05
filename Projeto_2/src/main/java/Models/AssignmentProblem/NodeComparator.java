@@ -12,7 +12,13 @@ import java.util.Comparator;
  */
 public class NodeComparator implements Comparator<Node> {
 
+    /**
+     *
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     public int compare(Node lhs, Node rhs) {
-        return Integer.compare(lhs.cost, rhs.cost);
+        return Integer.compare(lhs.custo, rhs.custo);
     }
 }

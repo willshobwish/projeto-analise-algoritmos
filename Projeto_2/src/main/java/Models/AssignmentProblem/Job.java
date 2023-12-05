@@ -15,9 +15,17 @@ public class Job {
     final int N = 4;
 
     Node newNode(int x, int y, boolean[] assigned, Node parent) {
-        return new Node(x, y, assigned, parent);
+        return new Node(x, y, assigned, parent, N);
     }
 
+    /**
+     *
+     * @param costMatrix
+     * @param x
+     * @param y
+     * @param assigned
+     * @return
+     */
     public int calculateCost(int[][] costMatrix, int x, int y, boolean[] assigned) {
         int cost = 0;
         boolean[] available = new boolean[N];
@@ -43,37 +51,45 @@ public class Job {
         return cost;
     }
 
-    public void printAssignments(Node min) {
+    /**
+     *
+     * @param min
+     */
+    public void printDesignacoes(Node min) {
         if (min.parent == null) {
             return;
         }
-        printAssignments(min.parent);
-        System.out.println("Assign Worker " + (char) (min.workerID + 'A') + " to Job " + min.jobID);
+        printDesignacoes(min.parent);
     }
 
+    /**
+     *
+     * @param costMatrix
+     * @return
+     */
     public int findMinCost(int[][] costMatrix) {
-        PriorityQueue<Node> pq = new PriorityQueue<>(new NodeComparator());
-        boolean[] assigned = new boolean[N];
-        Node root = newNode(-1, -1, assigned, null);
-        root.pathCost = root.cost = 0;
-        root.workerID = -1;
-        pq.add(root);
+        PriorityQueue<Node> priorityQueue = new PriorityQueue<>(new NodeComparator());
+        boolean[] designado = new boolean[N];
+        Node raiz = newNode(-1, -1, designado, null);
+        raiz.custoCaminho = raiz.custo = 0;
+        raiz.identificacao = -1;
+        priorityQueue.add(raiz);
 
-        while (!pq.isEmpty()) {
-            Node min = pq.poll();
-            int i = min.workerID + 1;
+        while (!priorityQueue.isEmpty()) {
+            Node min = priorityQueue.poll();
+            int i = min.identificacao + 1;
 
             if (i == N) {
-                printAssignments(min);
-                return min.cost;
+                printDesignacoes(min);
+                return min.custo;
             }
 
             for (int j = 0; j < N; j++) {
                 if (!min.assigned[j]) {
                     Node child = newNode(i, j, min.assigned, min);
-                    child.pathCost = min.pathCost + costMatrix[i][j];
-                    child.cost = child.pathCost + calculateCost(costMatrix, i, j, child.assigned);
-                    pq.add(child);
+                    child.custoCaminho = min.custoCaminho + costMatrix[i][j];
+                    child.custo = child.custoCaminho + calculateCost(costMatrix, i, j, child.assigned);
+                    priorityQueue.add(child);
                 }
             }
         }

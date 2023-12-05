@@ -55,10 +55,18 @@ public class ItensKnapsack {
         this.valor = valor;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSelecionado() {
         return selecionado;
     }
 
+    /**
+     *
+     * @param selecionado
+     */
     public void setSelecionado(boolean selecionado) {
         this.selecionado = selecionado;
     }
